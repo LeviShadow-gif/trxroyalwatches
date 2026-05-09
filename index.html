@@ -12,7 +12,6 @@
         rel="stylesheet">
 
     <style>
-        /* ... all existing CSS unchanged ... */
         :root {
             --white: #FCFAF5;
             --off-white: #F7F4ED;
@@ -1191,19 +1190,71 @@
             overflow: hidden;
             position: relative;
             min-height: 420px;
-            background: var(--silver-light);
+            background: #f8f6f1;
         }
 
-        .masterpiece-featured-img img {
+        /* ===================== SKETCHFAB 3D VIEWER — ULTRA LUXURY ===================== */
+        .sketchfab-embed-wrapper {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.8s cubic-bezier(.25, .46, .45, .94);
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            background: #f8f6f1;
+            border-radius: 0;
+            box-shadow: none;
         }
 
-        .masterpiece-featured-card:hover .masterpiece-featured-img img {
-            transform: scale(1.04);
+        .sketchfab-embed-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+            background: #f8f6f1;
+            transform: scale(1.06);
+            transform-origin: center center;
+        }
+
+        .sketchfab-embed-wrapper .sketchfab-attribution {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 8px 16px;
+            background: linear-gradient(transparent, rgba(8, 6, 0, 0.9));
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.35rem !important;
+            letter-spacing: 0.18em;
+            color: rgba(201, 160, 64, 0.45) !important;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+            z-index: 5;
+            margin: 0 !important;
+            font-weight: 400 !important;
+            line-height: 1.4;
+        }
+
+        .sketchfab-embed-wrapper:hover .sketchfab-attribution {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .sketchfab-embed-wrapper .sketchfab-attribution a {
+            color: rgba(212, 175, 106, 0.7) !important;
+            text-decoration: none;
+            font-weight: 500 !important;
+            transition: color 0.3s;
+            font-size: inherit !important;
+        }
+
+        .sketchfab-embed-wrapper .sketchfab-attribution a:hover {
+            color: var(--gold-light) !important;
+        }
+
+        .masterpiece-featured-card:hover .sketchfab-embed-wrapper {
+            transform: scale(1.025);
         }
 
         .masterpiece-featured-info {
@@ -1406,13 +1457,13 @@
             padding: 0 8px;
         }
 
-        /* ===================== CRAFT / VIDEO SECTION ===================== */
+        /* ===================== CRAFT / VIDEO SECTION (FULL WIDTH BELOW TEXT) ===================== */
         .craft-section {
             padding: 120px 60px;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 90px;
-            align-items: center;
+            grid-template-columns: 1fr;
+            gap: 60px;
+            align-items: start;
             background: linear-gradient(135deg, var(--pearl) 0%, var(--off-white) 100%);
             position: relative;
             overflow: hidden;
@@ -1435,12 +1486,19 @@
         .craft-content {
             position: relative;
             z-index: 2;
+            max-width: 720px;
+            margin: 0 auto;
+            text-align: center;
         }
 
         .craft-features {
             display: grid;
             gap: 32px;
             margin-top: 48px;
+            text-align: left;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .craft-feature {
@@ -1499,17 +1557,19 @@
         .craft-video-wrap {
             position: relative;
             z-index: 2;
-            aspect-ratio: 9/16;
-            max-height: 600px;
+            width: 100%;
+            max-width: 960px;
+            margin: 0 auto;
             overflow: hidden;
             border-radius: 2px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(201, 160, 64, 0.15);
         }
 
         .craft-video-placeholder {
             width: 100%;
-            height: 100%;
             overflow: hidden;
             position: relative;
+            aspect-ratio: 16 / 9;
         }
 
         .craft-video {
@@ -1997,7 +2057,6 @@
         }
 
         /* ===================== RESPONSIVE ===================== */
-
         @media(max-width:1200px) {
             .masterpiece-showcase {
                 grid-template-columns: 0.85fr 1.6fr;
@@ -2120,7 +2179,6 @@
                 width: 24px;
             }
 
-            /* Dots — vertically centered on right for mobile */
             .hero-dots {
                 right: 10px;
                 bottom: auto;
@@ -2200,13 +2258,16 @@
             }
 
             .craft-section {
-                grid-template-columns: 1fr;
                 padding: 80px 24px;
-                gap: 60px;
+                gap: 50px;
             }
 
             .craft-video-wrap {
-                max-height: 420px;
+                max-width: 100%;
+            }
+
+            .craft-video-placeholder {
+                aspect-ratio: 4/3;
             }
 
             .testimonial-grid {
@@ -2248,9 +2309,16 @@
             footer .logo-img {
                 height: 32px;
             }
+
+            .sketchfab-embed-wrapper {
+                border-radius: 3px;
+            }
+
+            .sketchfab-embed-wrapper iframe {
+                border-radius: 3px;
+            }
         }
 
-        /* ---- Small mobile (480px - 600px) ---- */
         @media(max-width:600px) {
             .masterpiece-mini-row {
                 grid-template-columns: repeat(2, 1fr);
@@ -2311,6 +2379,29 @@
             .hero-dot.active {
                 width: 8px;
                 height: 8px;
+            }
+
+            .masterpiece-featured-img {
+                min-height: 300px;
+            }
+
+            .sketchfab-embed-wrapper {
+                border-radius: 2px;
+                box-shadow: inset 0 0 40px rgba(201, 160, 64, 0.03), 0 0 20px rgba(201, 160, 64, 0.04), 0 4px 16px rgba(0, 0, 0, 0.25);
+            }
+
+            .sketchfab-embed-wrapper iframe {
+                border-radius: 2px;
+            }
+
+            .sketchfab-embed-wrapper .sketchfab-attribution {
+                font-size: 0.3rem !important;
+                padding: 6px 10px;
+                letter-spacing: 0.12em;
+            }
+
+            .craft-video-placeholder {
+                aspect-ratio: 1/1;
             }
         }
 
@@ -2379,6 +2470,51 @@
             footer .logo-img {
                 height: 28px;
             }
+
+            .masterpiece-featured-img {
+                min-height: 260px;
+            }
+        }
+
+        .sketchfab-embed-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 38px;
+            background: #f8f6f1;
+            z-index: 20;
+            pointer-events: none;
+        }
+
+        .sketchfab-embed-wrapper::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 32px;
+            background: #f8f6f1;
+            z-index: 20;
+            pointer-events: none;
+        }
+
+        .sketchfab-embed-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sketchfab-embed-wrapper .mobile-hide-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 70px;
+            height: 70px;
+            background: #f8f6f1;
+            z-index: 9999;
+            border-top-right-radius: 20px;
+            pointer-events: none;
         }
     </style>
 </head>
@@ -2574,7 +2710,7 @@
                         onerror="this.src='data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 900&quot;><rect width=&quot;800&quot; height=&quot;900&quot; fill=&quot;%231a1812&quot;/><circle cx=&quot;500&quot; cy=&quot;450&quot; r=&quot;280&quot; fill=&quot;none&quot; stroke=&quot;%23C9A040&quot; stroke-width=&quot;2&quot; opacity=&quot;0.4&quot;/><text x=&quot;500&quot; y=&quot;440&quot; text-anchor=&quot;middle&quot; fill=&quot;%23C9A040&quot; font-size=&quot;48&quot; font-family=&quot;serif&quot;>TRX</text><text x=&quot;500&quot; y=&quot;500&quot; text-anchor=&quot;middle&quot; fill=&quot;%23C9A040&quot; font-size=&quot;24&quot; font-family=&quot;serif&quot;>ROYAL</text></svg>'">
                 </div>
 
-                <!-- Slide 2: Image (hidden on desktop, shown on mobile with new image) -->
+                <!-- Slide 2: Image (hidden on desktop, shown on mobile) -->
                 <div class="hero-slide" data-type="image" data-index="2" data-duration="6000">
                     <img src="https://i.postimg.cc/xC7JnkyT/12.webp" alt="TRX Royal Watch" loading="lazy"
                         onerror="this.src='data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 900&quot;><rect width=&quot;800&quot; height=&quot;900&quot; fill=&quot;%231a1812&quot;/><circle cx=&quot;500&quot; cy=&quot;450&quot; r=&quot;280&quot; fill=&quot;none&quot; stroke=&quot;%23C9A040&quot; stroke-width=&quot;2&quot; opacity=&quot;0.4&quot;/><text x=&quot;500&quot; y=&quot;440&quot; text-anchor=&quot;middle&quot; fill=&quot;%23C9A040&quot; font-size=&quot;48&quot; font-family=&quot;serif&quot;>TRX</text><text x=&quot;500&quot; y=&quot;500&quot; text-anchor=&quot;middle&quot; fill=&quot;%23C9A040&quot; font-size=&quot;24&quot; font-family=&quot;serif&quot;>ROYAL</text></svg>'">
@@ -2587,9 +2723,10 @@
                     </video>
                 </div>
 
-                <!-- Slide 4: Image -->
+                <!-- Slide 4: Image (desktop image: https://i.postimg.cc/T2zNr4QP/Whats-App-Image-2026-05-09-at-13-46-40.jpg) -->
                 <div class="hero-slide" data-type="image" data-index="4" data-duration="6000">
-                    <img src="https://i.postimg.cc/C1dB3CDn/13.webp" alt="TRX Royal Watch" loading="lazy"
+                    <img src="https://i.postimg.cc/T2zNr4QP/Whats-App-Image-2026-05-09-at-13-46-40.jpg"
+                        alt="TRX Royal Watch" loading="lazy"
                         onerror="this.src='data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 900&quot;><rect width=&quot;800&quot; height=&quot;900&quot; fill=&quot;%231a1812&quot;/><circle cx=&quot;500&quot; cy=&quot;450&quot; r=&quot;280&quot; fill=&quot;none&quot; stroke=&quot;%23C9A040&quot; stroke-width=&quot;2&quot; opacity=&quot;0.4&quot;/><text x=&quot;500&quot; y=&quot;440&quot; text-anchor=&quot;middle&quot; fill=&quot;%23C9A040&quot; font-size=&quot;48&quot; font-family=&quot;serif&quot;>TRX</text><text x=&quot;500&quot; y=&quot;500&quot; text-anchor=&quot;middle&quot; fill=&quot;%23C9A040&quot; font-size=&quot;24&quot; font-family=&quot;serif&quot;>ROYAL</text></svg>'">
                 </div>
             </div>
@@ -2707,13 +2844,34 @@
             <div class="masterpiece-showcase" id="masterpieceShowcase">
                 <div class="masterpiece-featured-card" data-delay="0">
                     <div class="masterpiece-featured-img">
-                        <img src="https://i.postimg.cc/nrpDfWmn/1.webp" alt="Royal Chronograph I"
-                            onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><svg width=\'48\' height=\'48\' viewBox=\'0 0 48 48\' fill=\'none\'><circle cx=\'24\' cy=\'24\' r=\'20\' stroke=\'%23C9A040\' stroke-width=\'2\' opacity=\'0.5\'/><circle cx=\'24\' cy=\'24\' r=\'10\' stroke=\'%23C9A040\' stroke-width=\'1\' opacity=\'0.3\'/></svg><span>Product<br>Image</span></div>'">
+                        <!-- Sketchfab 3D Viewer — Ultra Luxury Embed -->
+                        <div class="sketchfab-embed-wrapper">
+                            <iframe title="Gmt-master-2-bg" frameborder="0" allowfullscreen mozallowfullscreen="true"
+                                webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking"
+                                xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered
+                                web-share
+                                src="https://sketchfab.com/models/2f04bbe7616845c6b851edaa413f9078/embed?autostart=1&transparent=1&ui_theme=light&ui_controls=0&ui_infos=0&ui_stop=0&ui_watermark=0&ui_watermark_link=0&ui_hint=0&camera=0">
+                            </iframe>
+                            <p class="sketchfab-attribution"
+                                style="font-size:13px;font-weight:normal;margin:5px;color:#4A4A4A;">
+                                <a href="https://sketchfab.com/3d-models/gmt-master-2-bg-2f04bbe7616845c6b851edaa413f9078?utm_medium=embed&utm_campaign=share-popup&utm_content=2f04bbe7616845c6b851edaa413f9078"
+                                    target="_blank" rel="nofollow" style="font-weight:bold;color:#1CAAD9;">
+                                    Gmt-master-2-bg </a>
+                                by
+                                <a href="https://sketchfab.com/damyzer911?utm_medium=embed&utm_campaign=share-popup&utm_content=2f04bbe7616845c6b851edaa413f9078"
+                                    target="_blank" rel="nofollow" style="font-weight:bold;color:#1CAAD9;">
+                                    damyzer911 </a>
+                                on
+                                <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=2f04bbe7616845c6b851edaa413f9078"
+                                    target="_blank" rel="nofollow" style="font-weight:bold;color:#1CAAD9;">
+                                    Sketchfab </a>
+                            </p>
+                        </div>
                     </div>
                     <div class="masterpiece-featured-info">
                         <span class="badge">Bestseller</span>
                         <span class="series">Signature Series</span>
-                        <h3 class="name">Royal Chronograph I</h3>
+                        <h3 class="name">TRX Rolex Watch</h3>
                         <p class="price">$5,800</p>
                         <a href="#" class="buy-btn">Buy Now</a>
                     </div>
@@ -2838,16 +2996,19 @@
             </div>
         </section>
 
-        <!-- CRAFTSMANSHIP -->
+        <!-- CRAFTSMANSHIP (FULL WIDTH VIDEO BELOW TEXT) -->
         <section class="craft-section" id="craft">
             <div class="craft-content">
-                <div class="section-eyebrow reveal" style="justify-content:flex-start;margin-bottom:20px;">
+                <div class="section-eyebrow reveal" style="justify-content:center;margin-bottom:20px;">
                     <span
-                        style="width:40px;height:1px;background:linear-gradient(90deg,transparent,var(--gold));flex-shrink:0;"></span>
+                        style="width:40px;height:1px;background:linear-gradient(90deg,transparent,var(--gold));flex-shrink:0;margin-right:20px;"></span>
                     The Art of Making
+                    <span
+                        style="width:40px;height:1px;background:linear-gradient(90deg,var(--gold),transparent);flex-shrink:0;margin-left:20px;"></span>
                 </div>
                 <h2 class="section-title reveal">Crafted by<br>Master Hands</h2>
-                <p class="hero-desc reveal" style="max-width:480px;">Every TRX Royal watch is born from an obsessive
+                <p class="hero-desc reveal" style="max-width:520px;margin-left:auto;margin-right:auto;">Every TRX Royal
+                    watch is born from an obsessive
                     devotion to craft — 400+ hours of meticulous work, each component polished to perfection.</p>
 
                 <div class="craft-features">
@@ -3109,7 +3270,6 @@
         let carouselTimer = null;
         let isPaused = false;
 
-        // Video tracking
         let currentVideo = null;
         let videoEndedHandler = null;
         let videoFallbackTimeout = null;
@@ -3138,7 +3298,6 @@
             if (visibleSlides.length === 0 || index >= visibleSlides.length) return;
             if (index === currentSlide && visibleSlides[currentSlide]?.classList.contains('active')) return;
 
-            // Clean up any playing video from previous slide
             cleanupVideo();
             if (carouselTimer) clearTimeout(carouselTimer);
             if (videoFallbackTimeout) clearTimeout(videoFallbackTimeout);
@@ -3154,13 +3313,11 @@
             const slideType = activeSlide.getAttribute('data-type');
 
             if (slideType === 'video') {
-                // Video slide — wait for video to end
                 const video = activeSlide.querySelector('video');
                 if (video) {
                     currentVideo = video;
                     video.currentTime = 0;
                     video.play().catch(() => {
-                        // If autoplay fails, use fallback
                         scheduleFallbackForVideo();
                     });
                     videoEndedHandler = () => {
@@ -3168,7 +3325,6 @@
                         nextSlide();
                     };
                     video.addEventListener('ended', videoEndedHandler);
-                    // Fallback: if video doesn't end within 30 seconds, move on
                     videoFallbackTimeout = setTimeout(() => {
                         if (currentVideo) {
                             cleanupVideo();
@@ -3176,17 +3332,14 @@
                         }
                     }, 30000);
                 } else {
-                    // No video element found, use default timing
                     resetCarouselTimer();
                 }
             } else {
-                // Image slide — use data-duration (6000ms = 6 seconds)
                 resetCarouselTimer();
             }
         }
 
         function scheduleFallbackForVideo() {
-            // If video fails to autoplay, advance after 8 seconds
             videoFallbackTimeout = setTimeout(() => {
                 if (currentVideo) {
                     cleanupVideo();
@@ -3201,7 +3354,6 @@
             const slide = visibleSlides[index];
             const slideType = slide.getAttribute('data-type');
             if (slideType === 'video') {
-                // Video duration is handled by 'ended' event, but provide a max fallback
                 return 30000;
             }
             const dur = parseInt(slide.getAttribute('data-duration') || '6000');
@@ -3220,7 +3372,6 @@
             if (isPaused) return;
             const activeSlide = getVisibleSlides()[currentSlide];
             if (activeSlide && activeSlide.getAttribute('data-type') === 'video') {
-                // Video slides are handled by the 'ended' event, don't set a fixed timer
                 return;
             }
             const duration = getSlideDuration(currentSlide);
@@ -3280,7 +3431,6 @@
             }
         }
 
-        // Dot clicks
         allHeroDots.forEach(dot => {
             dot.addEventListener('click', () => {
                 const dotIndex = parseInt(dot.getAttribute('data-index') || '0');
@@ -3292,13 +3442,11 @@
             });
         });
 
-        // Pause on hover
         if (heroSection) {
             heroSection.addEventListener('mouseenter', pauseCarousel);
             heroSection.addEventListener('mouseleave', resumeCarousel);
         }
 
-        // Touch swipe
         let touchStartX = 0;
         let touchEndX = 0;
         if (heroSection) {
@@ -3322,47 +3470,48 @@
             });
         }
 
-        /* ===== ADDED: Dynamic slide/dot adjustment for desktop vs mobile ===== */
         function updateHeroForDevice() {
             const isMobile = window.innerWidth <= 900;
             const slide2 = document.querySelector('.hero-slide[data-index="2"]');
             const dot2 = document.querySelector('.hero-dot[data-index="2"]');
 
             if (!isMobile) {
-                // Desktop: hide image 2 and its dot
                 if (slide2) slide2.style.display = 'none';
                 if (dot2) dot2.style.display = 'none';
-                // Keep original images for slides 1 and 4
-            } else {
-                // Mobile: show all slides and replace images with the three new ones
-                if (slide2) slide2.style.display = ''; // restore default display
-                if (dot2) dot2.style.display = '';
-
                 const slide1 = document.querySelector('.hero-slide[data-index="1"]');
                 const slide4 = document.querySelector('.hero-slide[data-index="4"]');
-
                 if (slide1) {
                     const img = slide1.querySelector('img');
-                    if (img) img.setAttribute('src', 'https://i.postimg.cc/7Zhg8TzL/16.webp');
-                }
-                if (slide2) {
-                    const img = slide2.querySelector('img');
-                    if (img) img.setAttribute('src', 'https://i.postimg.cc/T31rMWbw/17.webp');
+                    if (img) img.src = 'https://i.postimg.cc/NFDrsx8c/KF-Mecha-36-INT-1-4c345a1a-2d39-4ccc-932a-b03ecb5326ce.webp';
                 }
                 if (slide4) {
                     const img = slide4.querySelector('img');
-                    if (img) img.setAttribute('src', 'https://i.postimg.cc/pLrDbnj2/18.webp');
+                    if (img) img.src = 'https://i.postimg.cc/T2zNr4QP/Whats-App-Image-2026-05-09-at-13-46-40.jpg';
+                }
+            } else {
+                if (slide2) slide2.style.display = '';
+                if (dot2) dot2.style.display = '';
+                const slide1 = document.querySelector('.hero-slide[data-index="1"]');
+                if (slide1) {
+                    const img = slide1.querySelector('img');
+                    if (img) img.src = 'https://i.postimg.cc/T31rMWbw/17.webp';
+                }
+                if (slide2) {
+                    const img = slide2.querySelector('img');
+                    if (img) img.src = 'https://i.postimg.cc/T3Gks5ZC/Whats-App-Image-2026-05-09-at-13-33-26.jpg';
+                }
+                const slide4 = document.querySelector('.hero-slide[data-index="4"]');
+                if (slide4) {
+                    const img = slide4.querySelector('img');
+                    if (img) img.src = 'https://i.postimg.cc/pXBDkSkj/Whats-App-Image-2026-05-08-at-17-26-42.jpg';
                 }
             }
 
-            // Reinitialize carousel with the updated slide set
             initCarousel();
         }
 
-        // Apply on load (before initial initCarousel call)
         updateHeroForDevice();
 
-        // Resize handler: update and reinitialize
         let resizeTimeout;
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimeout);
@@ -3371,7 +3520,6 @@
             }, 300);
         });
 
-        // ---- MOUSE PARALLAX ON HERO ----
         if (heroSection) {
             heroSection.addEventListener('mousemove', (e) => {
                 const rect = heroSection.getBoundingClientRect();
