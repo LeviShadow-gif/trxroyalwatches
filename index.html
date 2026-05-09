@@ -2405,6 +2405,68 @@
             }
         }
 
+        /* ===== UNIVERSAL MOBILE FIX ===== */
+
+        @media screen and (max-width: 768px) {
+
+            .craft-section {
+                display: flex !important;
+                flex-direction: column !important;
+                padding: 60px 20px !important;
+                gap: 30px !important;
+                overflow: hidden !important;
+            }
+
+            .craft-content {
+                width: 100% !important;
+                max-width: 100% !important;
+                padding: 0 !important;
+            }
+
+            .craft-video-wrap {
+                width: 100% !important;
+                max-width: 100% !important;
+                border-radius: 22px !important;
+                overflow: hidden !important;
+            }
+
+            .craft-video-placeholder {
+                width: 100% !important;
+                height: auto !important;
+                aspect-ratio: 16 / 10 !important;
+                min-height: unset !important;
+                max-height: unset !important;
+            }
+
+            .craft-video {
+                width: 100% !important;
+                height: 100% !important;
+                object-fit: cover !important;
+                display: block !important;
+            }
+
+            .craft-content .section-title {
+                font-size: 2rem !important;
+                line-height: 1.2 !important;
+                text-align: center !important;
+            }
+
+            .craft-content .section-desc {
+                font-size: 0.92rem !important;
+                line-height: 1.7 !important;
+                text-align: center !important;
+            }
+
+            .craft-features {
+                width: 100% !important;
+            }
+
+            .craft-feature {
+                width: 100% !important;
+            }
+
+        }
+
         @media(max-width:540px) {
             .footer-top {
                 grid-template-columns: 1fr;
