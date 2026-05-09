@@ -1191,19 +1191,72 @@
             overflow: hidden;
             position: relative;
             min-height: 420px;
-            background: var(--silver-light);
+            background: #f8f6f1;
         }
 
-        .masterpiece-featured-img img {
+        /* ===================== SKETCHFAB 3D VIEWER — ULTRA LUXURY ===================== */
+        .sketchfab-embed-wrapper {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.8s cubic-bezier(.25, .46, .45, .94);
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            background: #f8f6f1;
+            border-radius: 0;
+            box-shadow: none;
         }
 
-        .masterpiece-featured-card:hover .masterpiece-featured-img img {
-            transform: scale(1.04);
+        .sketchfab-embed-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+            background: #f8f6f1;
+            transform: scale(1.06);
+            transform-origin: center center;
+        }
+
+        .sketchfab-embed-wrapper .sketchfab-attribution {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 8px 16px;
+            background: linear-gradient(transparent, rgba(8, 6, 0, 0.9));
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.35rem !important;
+            letter-spacing: 0.18em;
+            color: rgba(201, 160, 64, 0.45) !important;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+            z-index: 5;
+            margin: 0 !important;
+            font-weight: 400 !important;
+            line-height: 1.4;
+        }
+
+        .sketchfab-embed-wrapper:hover .sketchfab-attribution {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .sketchfab-embed-wrapper .sketchfab-attribution a {
+            color: rgba(212, 175, 106, 0.7) !important;
+            text-decoration: none;
+            font-weight: 500 !important;
+            transition: color 0.3s;
+            font-size: inherit !important;
+        }
+
+        .sketchfab-embed-wrapper .sketchfab-attribution a:hover {
+            color: var(--gold-light) !important;
+        }
+
+        /* Hover: subtle scale on the 3D viewer */
+        .masterpiece-featured-card:hover .sketchfab-embed-wrapper {
+            transform: scale(1.025);
         }
 
         .masterpiece-featured-info {
@@ -2248,6 +2301,14 @@
             footer .logo-img {
                 height: 32px;
             }
+
+            .sketchfab-embed-wrapper {
+                border-radius: 3px;
+            }
+
+            .sketchfab-embed-wrapper iframe {
+                border-radius: 3px;
+            }
         }
 
         /* ---- Small mobile (480px - 600px) ---- */
@@ -2311,6 +2372,25 @@
             .hero-dot.active {
                 width: 8px;
                 height: 8px;
+            }
+
+            .masterpiece-featured-img {
+                min-height: 300px;
+            }
+
+            .sketchfab-embed-wrapper {
+                border-radius: 2px;
+                box-shadow: inset 0 0 40px rgba(201, 160, 64, 0.03), 0 0 20px rgba(201, 160, 64, 0.04), 0 4px 16px rgba(0, 0, 0, 0.25);
+            }
+
+            .sketchfab-embed-wrapper iframe {
+                border-radius: 2px;
+            }
+
+            .sketchfab-embed-wrapper .sketchfab-attribution {
+                font-size: 0.3rem !important;
+                padding: 6px 10px;
+                letter-spacing: 0.12em;
             }
         }
 
@@ -2379,6 +2459,34 @@
             footer .logo-img {
                 height: 28px;
             }
+
+            .masterpiece-featured-img {
+                min-height: 260px;
+            }
+        }
+
+        .sketchfab-embed-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 38px;
+            background: #f8f6f1;
+            z-index: 20;
+            pointer-events: none;
+        }
+
+        .sketchfab-embed-wrapper::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 32px;
+            background: #f8f6f1;
+            z-index: 20;
+            pointer-events: none;
         }
     </style>
 </head>
@@ -2707,13 +2815,34 @@
             <div class="masterpiece-showcase" id="masterpieceShowcase">
                 <div class="masterpiece-featured-card" data-delay="0">
                     <div class="masterpiece-featured-img">
-                        <img src="https://i.postimg.cc/nrpDfWmn/1.webp" alt="Royal Chronograph I"
-                            onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><svg width=\'48\' height=\'48\' viewBox=\'0 0 48 48\' fill=\'none\'><circle cx=\'24\' cy=\'24\' r=\'20\' stroke=\'%23C9A040\' stroke-width=\'2\' opacity=\'0.5\'/><circle cx=\'24\' cy=\'24\' r=\'10\' stroke=\'%23C9A040\' stroke-width=\'1\' opacity=\'0.3\'/></svg><span>Product<br>Image</span></div>'">
+                        <!-- Sketchfab 3D Viewer — Ultra Luxury Embed -->
+                        <div class="sketchfab-embed-wrapper">
+                            <iframe title="Gmt-master-2-bg" frameborder="0" allowfullscreen mozallowfullscreen="true"
+                                webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking"
+                                xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered
+                                web-share
+                                src="https://sketchfab.com/models/2f04bbe7616845c6b851edaa413f9078/embed?autostart=1&transparent=1&ui_theme=light&ui_controls=0&ui_infos=0&ui_stop=0&ui_watermark=0&ui_watermark_link=0&ui_hint=0&camera=0">
+                            </iframe>
+                            <p class="sketchfab-attribution"
+                                style="font-size:13px;font-weight:normal;margin:5px;color:#4A4A4A;">
+                                <a href="https://sketchfab.com/3d-models/gmt-master-2-bg-2f04bbe7616845c6b851edaa413f9078?utm_medium=embed&utm_campaign=share-popup&utm_content=2f04bbe7616845c6b851edaa413f9078"
+                                    target="_blank" rel="nofollow" style="font-weight:bold;color:#1CAAD9;">
+                                    Gmt-master-2-bg </a>
+                                by
+                                <a href="https://sketchfab.com/damyzer911?utm_medium=embed&utm_campaign=share-popup&utm_content=2f04bbe7616845c6b851edaa413f9078"
+                                    target="_blank" rel="nofollow" style="font-weight:bold;color:#1CAAD9;">
+                                    damyzer911 </a>
+                                on
+                                <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=2f04bbe7616845c6b851edaa413f9078"
+                                    target="_blank" rel="nofollow" style="font-weight:bold;color:#1CAAD9;">
+                                    Sketchfab </a>
+                            </p>
+                        </div>
                     </div>
                     <div class="masterpiece-featured-info">
                         <span class="badge">Bestseller</span>
                         <span class="series">Signature Series</span>
-                        <h3 class="name">Royal Chronograph I</h3>
+                        <h3 class="name">TRX Rolex Watch</h3>
                         <p class="price">$5,800</p>
                         <a href="#" class="buy-btn">Buy Now</a>
                     </div>
