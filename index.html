@@ -1,0 +1,3521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRX Royal Watch — Timeless Luxury</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Cinzel:wght@400;600;700;900&family=Montserrat:wght@200;300;400;500&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* ... all existing CSS unchanged ... */
+        :root {
+            --white: #FCFAF5;
+            --off-white: #F7F4ED;
+            --pearl: #F2EDE4;
+            --cream: #EDE6D8;
+            --silver-light: #E8E6E2;
+            --silver: #C8C5BE;
+            --silver-mid: #A8A5A0;
+            --silver-dark: #787470;
+            --gold-light: #EDD68A;
+            --gold: #C9A040;
+            --gold-mid: #B8882A;
+            --gold-dark: #8C6218;
+            --gold-warm: #D4AF6A;
+            --platinum: #D8D4CC;
+            --obsidian: #080810;
+            --charcoal: #10101A;
+            --text-dark: #0E0C08;
+            --text-mid: #1A1610;
+            --text-light: #2A2620;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+        }
+
+        html::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+            background: transparent;
+        }
+
+        body {
+            background: var(--white);
+            color: var(--text-dark);
+            font-family: 'Cormorant Garamond', serif;
+            overflow-x: hidden;
+        }
+
+        /* ===================== LOADER — CREAM BG ===================== */
+        #loader {
+            position: fixed;
+            inset: 0;
+            background: #F7F4ED;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        #loader::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, #F2EDE4 0%, #F7F4ED 70%);
+        }
+
+        .loader-brand {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(0.7rem, 2vw, 0.9rem);
+            letter-spacing: 0.5em;
+            background: linear-gradient(90deg, var(--silver-dark) 0%, var(--gold) 40%, var(--gold-warm) 60%, var(--silver-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 60px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.3s forwards;
+            position: relative;
+            z-index: 2;
+        }
+
+        .watch-svg-wrap {
+            position: relative;
+            z-index: 2;
+            width: 220px;
+            height: 220px;
+            margin-bottom: 50px;
+            filter: drop-shadow(0 0 30px rgba(201, 160, 64, 0.35));
+        }
+
+        .watch-svg-wrap svg {
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+        }
+
+        .w-case {
+            opacity: 0;
+            transform-origin: center;
+            animation: partDrop 0.6s cubic-bezier(.23, 1.2, .68, 1) 0.8s forwards;
+        }
+
+        .w-crown {
+            opacity: 0;
+            transform-origin: right center;
+            animation: partSlideLeft 0.5s cubic-bezier(.23, 1.2, .68, 1) 1.4s forwards;
+        }
+
+        .w-lugs-top {
+            opacity: 0;
+            animation: partDrop 0.4s cubic-bezier(.23, 1.2, .68, 1) 1.8s forwards;
+        }
+
+        .w-lugs-bot {
+            opacity: 0;
+            animation: partRise 0.4s cubic-bezier(.23, 1.2, .68, 1) 1.8s forwards;
+        }
+
+        .w-dial {
+            opacity: 0;
+            animation: scalePop 0.5s cubic-bezier(.23, 1.2, .68, 1) 2.2s forwards;
+        }
+
+        .w-markers {
+            opacity: 0;
+            animation: fadeSpin 0.6s ease 2.7s forwards;
+        }
+
+        .w-hands {
+            opacity: 0;
+            animation: scalePop 0.4s cubic-bezier(.23, 1.2, .68, 1) 3.2s forwards;
+        }
+
+        .w-crystal {
+            opacity: 0;
+            animation: crystalReveal 0.6s ease 3.6s forwards;
+        }
+
+        .w-bezel {
+            opacity: 0;
+            animation: spinIn 0.7s cubic-bezier(.23, 1.2, .68, 1) 4.0s forwards;
+        }
+
+        .w-glow {
+            opacity: 0;
+            animation: glowPulse 1s ease 4.5s forwards;
+        }
+
+        @keyframes partDrop {
+            from {
+                opacity: 0;
+                transform: translateY(-40px) scale(0.8)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1)
+            }
+        }
+
+        @keyframes partRise {
+            from {
+                opacity: 0;
+                transform: translateY(40px) scale(0.8)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1)
+            }
+        }
+
+        @keyframes partSlideLeft {
+            from {
+                opacity: 0;
+                transform: translateX(30px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0)
+            }
+        }
+
+        @keyframes scalePop {
+            from {
+                opacity: 0;
+                transform: scale(0.3)
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1)
+            }
+        }
+
+        @keyframes fadeSpin {
+            from {
+                opacity: 0;
+                transform: rotate(-30deg) scale(0.8)
+            }
+
+            to {
+                opacity: 1;
+                transform: rotate(0deg) scale(1)
+            }
+        }
+
+        @keyframes spinIn {
+            from {
+                opacity: 0;
+                transform: rotate(-180deg) scale(0.5)
+            }
+
+            to {
+                opacity: 1;
+                transform: rotate(0deg) scale(1)
+            }
+        }
+
+        @keyframes crystalReveal {
+            from {
+                opacity: 0;
+                transform: scale(1.5)
+            }
+
+            to {
+                opacity: 0.25;
+                transform: scale(1)
+            }
+        }
+
+        @keyframes glowPulse {
+            from {
+                opacity: 0
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        .loader-progress {
+            position: relative;
+            z-index: 2;
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 1px;
+            background: rgba(201, 160, 64, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--silver-dark), var(--gold), var(--gold-light), var(--gold), var(--silver-dark));
+            width: 0%;
+            animation: progressLoad 4.8s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards;
+            box-shadow: 0 0 10px var(--gold);
+        }
+
+        @keyframes progressLoad {
+            0% {
+                width: 0%
+            }
+
+            15% {
+                width: 12%
+            }
+
+            30% {
+                width: 28%
+            }
+
+            45% {
+                width: 42%
+            }
+
+            58% {
+                width: 55%
+            }
+
+            70% {
+                width: 68%
+            }
+
+            82% {
+                width: 80%
+            }
+
+            92% {
+                width: 90%
+            }
+
+            100% {
+                width: 100%
+            }
+        }
+
+        .progress-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.55rem;
+            letter-spacing: 0.4em;
+            color: var(--gold-dark);
+            opacity: 0;
+            animation: fadeInUp 0.6s ease 1s forwards;
+        }
+
+        .loader-exit {
+            animation: loaderFadeOut 0.8s ease forwards !important;
+        }
+
+        @keyframes loaderFadeOut {
+            to {
+                opacity: 0;
+                pointer-events: none;
+                visibility: hidden
+            }
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--gold);
+            animation: floatParticle linear infinite;
+            opacity: 0;
+        }
+
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0
+            }
+
+            10% {
+                opacity: 0.35
+            }
+
+            90% {
+                opacity: 0.08
+            }
+
+            100% {
+                transform: translateY(-100px) scale(1);
+                opacity: 0
+            }
+        }
+
+        /* ===================== MAIN SITE ===================== */
+        #main-site {
+            opacity: 0;
+            animation: siteReveal 1s ease 5.8s forwards;
+        }
+
+        @keyframes siteReveal {
+            to {
+                opacity: 1
+            }
+        }
+
+        /* ===================== NAV — PERMANENT WHITE ===================== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 24px 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(252, 250, 245, 0.98);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(201, 160, 64, 0.2);
+            box-shadow: 0 2px 30px rgba(201, 160, 64, 0.06);
+            transition: background 0.4s, border-color 0.4s;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 52px;
+            width: auto;
+            display: block;
+            object-fit: contain;
+            flex-shrink: 0;
+            border-radius: 12px;
+        }
+
+        .logo-text {
+            font-family: 'Cinzel', serif;
+            font-size: 1.15rem;
+            letter-spacing: 0.22em;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .logo-sub {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.42rem;
+            letter-spacing: 0.5em;
+            color: var(--gold);
+            display: block;
+            margin-top: 2px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.6rem;
+            letter-spacing: 0.3em;
+            text-decoration: none;
+            color: var(--text-mid);
+            text-transform: uppercase;
+            transition: color 0.3s;
+            position: relative;
+            font-weight: 500;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+            transform-origin: left;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold-dark);
+        }
+
+        .nav-links a:hover::after {
+            transform: scaleX(1);
+        }
+
+        .nav-cta {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.6rem;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--white);
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
+            padding: 12px 28px;
+            text-decoration: none;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(201, 160, 64, 0.4);
+            border-radius: 8px;
+        }
+
+        .nav-cta::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
+            opacity: 0;
+            transition: opacity 0.3s;
+            border-radius: 8px;
+        }
+
+        .nav-cta:hover::before {
+            opacity: 1;
+        }
+
+        .nav-cta:hover {
+            box-shadow: 0 0 20px rgba(201, 160, 64, 0.4);
+        }
+
+        .nav-cta span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 1px;
+            background: var(--gold);
+            transition: all 0.3s;
+            display: block;
+        }
+
+        /* ===================== HERO — FULL BLEED CAROUSEL ===================== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            overflow: hidden;
+            background: var(--off-white);
+        }
+
+        .hero-full-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+            background: #1a1812;
+        }
+
+        .hero-slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            pointer-events: none;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .hero-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 58% 50%;
+            display: block;
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            background: #1a1812;
+        }
+
+        .hero-slide.active img {
+            transform: scale(1);
+        }
+
+        .hero-slide-video {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1a1812 0%, #0d0c08 40%, #1a1610 100%);
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: absolute;
+            inset: 0;
+        }
+
+        .hero-bg-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero-video-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: clamp(16px, 3vw, 24px);
+            z-index: 2;
+            padding: 20px;
+        }
+
+        .hero-video-play-icon {
+            width: clamp(60px, 10vw, 90px);
+            height: clamp(60px, 10vw, 90px);
+            border: 2px solid rgba(201, 160, 64, 0.5);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulseRingGold 2s ease-in-out infinite;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .hero-video-play-icon:hover {
+            border-color: var(--gold);
+            box-shadow: 0 0 40px rgba(201, 160, 64, 0.3);
+        }
+
+        .hero-video-play-icon svg {
+            width: clamp(24px, 5vw, 36px);
+            height: clamp(24px, 5vw, 36px);
+            fill: var(--gold);
+            margin-left: 4px;
+        }
+
+        .hero-video-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(0.45rem, 1.2vw, 0.55rem);
+            letter-spacing: 0.4em;
+            color: var(--gold-light);
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .hero-video-subtext {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(0.35rem, 0.9vw, 0.4rem);
+            letter-spacing: 0.3em;
+            color: rgba(201, 160, 64, 0.5);
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        @keyframes pulseRingGold {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(201, 160, 64, 0)
+            }
+
+            50% {
+                box-shadow: 0 0 0 18px rgba(201, 160, 64, 0.06)
+            }
+        }
+
+        /* ===================== HERO DOTS — UNIFIED (ALL DEVICES) ===================== */
+        .hero-dots {
+            position: absolute;
+            right: clamp(12px, 3vw, 32px);
+            bottom: clamp(20px, 5vw, 48px);
+            z-index: 5;
+            display: flex;
+            flex-direction: column;
+            gap: clamp(8px, 1.5vw, 14px);
+            align-items: center;
+        }
+
+        .hero-dot {
+            width: clamp(6px, 1vw, 8px);
+            height: clamp(6px, 1vw, 8px);
+            border-radius: 50%;
+            background: rgba(201, 160, 64, 0.35);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            border: 1px solid rgba(201, 160, 64, 0.2);
+            flex-shrink: 0;
+        }
+
+        .hero-dot:hover {
+            background: rgba(201, 160, 64, 0.7);
+            transform: scale(1.4);
+            border-color: rgba(201, 160, 64, 0.6);
+        }
+
+        .hero-dot.active {
+            background: var(--gold);
+            border-color: var(--gold-light);
+            box-shadow: 0 0 14px rgba(201, 160, 64, 0.6);
+            width: clamp(8px, 1.3vw, 10px);
+            height: clamp(8px, 1.3vw, 10px);
+        }
+
+        .hero-dot-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.4rem;
+            letter-spacing: 0.2em;
+            color: var(--gold-dark);
+            text-transform: uppercase;
+            position: absolute;
+            right: 22px;
+            white-space: nowrap;
+            opacity: 0;
+            transform: translateX(10px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+            font-weight: 500;
+        }
+
+        .hero-dot:hover .hero-dot-label,
+        .hero-dot.active .hero-dot-label {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .hero-parallax-bg {
+            position: absolute;
+            inset: -20%;
+            background: radial-gradient(ellipse at 75% 40%, rgba(201, 160, 64, 0.04) 0%, transparent 55%),
+                radial-gradient(ellipse at 20% 70%, rgba(200, 196, 188, 0.05) 0%, transparent 50%);
+            will-change: transform;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .hero-lines {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .hero-lines::before,
+        .hero-lines::after {
+            content: '';
+            position: absolute;
+            width: 1px;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, rgba(201, 160, 64, 0.10), transparent);
+            animation: lineFloat 8s ease-in-out infinite;
+        }
+
+        .hero-lines::before {
+            left: 33%;
+            animation-delay: 0s;
+        }
+
+        .hero-lines::after {
+            left: 66%;
+            animation-delay: 4s;
+        }
+
+        @keyframes lineFloat {
+
+            0%,
+            100% {
+                opacity: 0.3;
+                transform: scaleY(0.8)
+            }
+
+            50% {
+                opacity: 1;
+                transform: scaleY(1)
+            }
+        }
+
+        .hero-diagonal {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .hero-diagonal::before {
+            content: '';
+            position: absolute;
+            width: 1px;
+            height: 200%;
+            background: linear-gradient(180deg, transparent, rgba(201, 160, 64, 0.05), transparent);
+            transform: rotate(25deg);
+            left: 55%;
+            top: -50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            padding: 160px 60px 80px 60px;
+        }
+
+        .hero-tag {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.55rem;
+            letter-spacing: 0.6em;
+            color: var(--gold-dark);
+            text-transform: uppercase;
+            margin-bottom: 28px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 6.2s forwards;
+            font-weight: 500;
+        }
+
+        .hero-tag::before {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: linear-gradient(90deg, var(--gold-dark), var(--gold));
+        }
+
+        .hero-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(3rem, 6vw, 6.5rem);
+            line-height: 0.92;
+            font-weight: 900;
+            color: #080600;
+            margin-bottom: 10px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 6.4s forwards;
+            text-shadow: 0 0 40px rgba(252, 250, 245, 0.5);
+        }
+
+        .hero-title .title-accent {
+            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 35%, var(--gold-light) 60%, var(--silver-dark) 80%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 300% 100%;
+            animation: shimmerText 5s linear infinite 7s;
+        }
+
+        @keyframes shimmerText {
+            0% {
+                background-position: -100% 0
+            }
+
+            100% {
+                background-position: 300% 0
+            }
+        }
+
+        .hero-subtitle {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.6rem, 2.8vw, 3rem);
+            color: var(--text-mid);
+            font-weight: 400;
+            font-style: italic;
+            margin-bottom: 36px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 6.6s forwards;
+        }
+
+        .hero-desc {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: var(--text-light);
+            max-width: 420px;
+            margin-bottom: 52px;
+            font-weight: 400;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 6.8s forwards;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 7s forwards;
+        }
+
+        .btn-primary {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.6rem;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--white);
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
+            background-size: 200% 100%;
+            padding: 18px 44px;
+            text-decoration: none;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(201, 160, 64, 0.4);
+            border-radius: 8px;
+            font-weight: 500;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
+            opacity: 0;
+            transition: opacity 0.4s;
+            border-radius: 8px;
+        }
+
+        .btn-primary:hover::before {
+            opacity: 1;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 50px rgba(201, 160, 64, 0.3);
+        }
+
+        .btn-primary span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-secondary {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.6rem;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--gold-dark);
+            text-decoration: none;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(201, 160, 64, 0.4);
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .btn-secondary:hover {
+            color: var(--gold-dark);
+            border-color: var(--gold-dark);
+        }
+
+        .hero-right-space {
+            position: relative;
+            z-index: 2;
+            height: 100vh;
+        }
+
+        .hero-img-container {
+            position: relative;
+            height: 100vh;
+        }
+
+        .spec-label {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 4;
+        }
+
+        .spec-label-right {
+            right: 5%;
+            flex-direction: row;
+        }
+
+        .spec-label-left {
+            left: 0;
+            flex-direction: row-reverse;
+        }
+
+        .spec-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--gold);
+            box-shadow: 0 0 10px var(--gold);
+            flex-shrink: 0;
+        }
+
+        .spec-line {
+            width: 40px;
+            height: 1px;
+            background: linear-gradient(90deg, var(--gold), transparent);
+            flex-shrink: 0;
+        }
+
+        .spec-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.48rem;
+            letter-spacing: 0.22em;
+            color: var(--gold-dark);
+            text-transform: uppercase;
+            white-space: nowrap;
+            font-weight: 500;
+        }
+
+        /* ===================== TICKER ===================== */
+        .ticker {
+            padding: 18px 0;
+            background: linear-gradient(135deg, rgba(201, 160, 64, 0.06), rgba(200, 196, 188, 0.10));
+            border-top: 1px solid rgba(201, 160, 64, 0.2);
+            border-bottom: 1px solid rgba(201, 160, 64, 0.2);
+            overflow: hidden;
+        }
+
+        .ticker-track {
+            display: flex;
+            gap: 60px;
+            animation: tickerMove 28s linear infinite;
+            width: max-content;
+        }
+
+        .ticker-item {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.55rem;
+            letter-spacing: 0.4em;
+            color: var(--gold-dark);
+            text-transform: uppercase;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-weight: 500;
+        }
+
+        .ticker-item::after {
+            content: '◆';
+            font-size: 0.4rem;
+            color: var(--gold);
+        }
+
+        @keyframes tickerMove {
+            from {
+                transform: translateX(0)
+            }
+
+            to {
+                transform: translateX(-50%)
+            }
+        }
+
+        /* ===================== STATS ===================== */
+        .stats {
+            padding: 100px 60px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: rgba(201, 160, 64, 0.12);
+            position: relative;
+        }
+
+        .stat-item {
+            background: var(--off-white);
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: background 0.4s;
+        }
+
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(201, 160, 64, 0.08), transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .stat-item:hover::before {
+            opacity: 1;
+        }
+
+        .stat-number {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2.5rem, 4vw, 4rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+
+        .stat-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.55rem;
+            letter-spacing: 0.35em;
+            color: var(--text-light);
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        /* ===================== MASTERPIECE COLLECTION ===================== */
+        .section {
+            padding: 120px 60px;
+            background: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-eyebrow {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.55rem;
+            letter-spacing: 0.6em;
+            color: var(--gold-dark);
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            font-weight: 500;
+        }
+
+        .section-eyebrow::before {
+            content: '';
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold));
+        }
+
+        .section-eyebrow::after {
+            content: '';
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, var(--gold), transparent);
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 700;
+            color: #080600;
+            margin-bottom: 20px;
+        }
+
+        .section-desc {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .masterpiece-showcase {
+            display: grid;
+            grid-template-columns: 0.78fr 1.85fr;
+            gap: 3px;
+            margin-bottom: 0;
+        }
+
+        .masterpiece-featured-card {
+            position: relative;
+            overflow: hidden;
+            background: var(--silver-light);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(201, 160, 64, 0.2);
+            transition: all 0.4s;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .masterpiece-featured-card.revealed {
+            animation: cardReveal 0.7s cubic-bezier(.25, .46, .45, .94) forwards;
+        }
+
+        .masterpiece-featured-card:hover {
+            box-shadow: 0 20px 60px rgba(201, 160, 64, 0.15);
+            transform: translateY(-4px) !important;
+        }
+
+        .masterpiece-featured-img {
+            flex: 1;
+            overflow: hidden;
+            position: relative;
+            min-height: 420px;
+            background: var(--silver-light);
+        }
+
+        .masterpiece-featured-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.8s cubic-bezier(.25, .46, .45, .94);
+        }
+
+        .masterpiece-featured-card:hover .masterpiece-featured-img img {
+            transform: scale(1.04);
+        }
+
+        .masterpiece-featured-info {
+            padding: 24px 28px;
+            background: var(--off-white);
+            border-top: 1px solid rgba(201, 160, 64, 0.15);
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .masterpiece-featured-info .badge {
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.42rem;
+            letter-spacing: 0.3em;
+            color: var(--white);
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+            padding: 5px 12px;
+            text-transform: uppercase;
+            align-self: flex-start;
+            margin-bottom: 4px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .masterpiece-featured-info .series {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.5rem;
+            letter-spacing: 0.4em;
+            color: var(--gold-dark);
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .masterpiece-featured-info .name {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.4rem, 2.2vw, 2rem);
+            color: #080600;
+            font-weight: 700;
+        }
+
+        .masterpiece-featured-info .price {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 0.08em;
+            color: var(--gold-dark);
+            font-weight: 600;
+        }
+
+        .masterpiece-featured-info .buy-btn {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.55rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--white);
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+            padding: 12px 28px;
+            text-decoration: none;
+            display: inline-block;
+            align-self: flex-start;
+            transition: all 0.3s;
+            border: 1px solid rgba(201, 160, 64, 0.4);
+            border-radius: 6px;
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        .masterpiece-featured-info .buy-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(201, 160, 64, 0.3);
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
+        }
+
+        .masterpiece-mini-grid-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .masterpiece-mini-row {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 3px;
+        }
+
+        .mini-card-new {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            background: var(--silver-light);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(201, 160, 64, 0.12);
+            transition: all 0.4s;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .mini-card-new.revealed {
+            animation: cardReveal 0.5s cubic-bezier(.25, .46, .45, .94) forwards;
+        }
+
+        .mini-card-new:hover {
+            z-index: 2;
+            box-shadow: 0 12px 40px rgba(201, 160, 64, 0.18);
+            transform: translateY(-3px) !important;
+        }
+
+        .mini-card-new-img {
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            background: var(--silver-light);
+        }
+
+        .mini-card-new-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s cubic-bezier(.25, .46, .45, .94);
+        }
+
+        .mini-card-new:hover .mini-card-new-img img {
+            transform: scale(1.06);
+        }
+
+        .mini-card-new-info {
+            padding: 12px 10px;
+            background: var(--off-white);
+            border-top: 1px solid rgba(201, 160, 64, 0.10);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .mini-card-new-info .mc-name {
+            font-family: 'Cinzel', serif;
+            font-size: 0.7rem;
+            color: #080600;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .mini-card-new-info .mc-price {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.5rem;
+            letter-spacing: 0.12em;
+            color: var(--gold-dark);
+            font-weight: 600;
+        }
+
+        .mini-card-new-info .mc-buy {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.42rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--gold-dark);
+            text-decoration: none;
+            border: 1px solid rgba(201, 160, 64, 0.35);
+            padding: 4px 10px;
+            display: inline-block;
+            margin-top: 4px;
+            transition: all 0.3s;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .mini-card-new-info .mc-buy:hover {
+            background: rgba(201, 160, 64, 0.1);
+            border-color: var(--gold);
+            color: var(--gold-dark);
+        }
+
+        @keyframes cardReveal {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .img-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--silver-light), var(--cream));
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .img-placeholder span {
+            font-family: 'Cinzel', serif;
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            color: var(--silver-dark);
+            text-align: center;
+            padding: 0 8px;
+        }
+
+        /* ===================== CRAFT / VIDEO SECTION ===================== */
+        .craft-section {
+            padding: 120px 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 90px;
+            align-items: center;
+            background: linear-gradient(135deg, var(--pearl) 0%, var(--off-white) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .craft-section::before {
+            content: 'CRAFT';
+            position: absolute;
+            font-family: 'Cinzel', serif;
+            font-size: 20vw;
+            font-weight: 900;
+            color: rgba(201, 160, 64, 0.04);
+            right: -5%;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            letter-spacing: -0.05em;
+        }
+
+        .craft-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .craft-features {
+            display: grid;
+            gap: 32px;
+            margin-top: 48px;
+        }
+
+        .craft-feature {
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+        }
+
+        .craft-icon {
+            width: 48px;
+            height: 48px;
+            flex-shrink: 0;
+            border: 1px solid rgba(201, 160, 64, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: rgba(201, 160, 64, 0.06);
+            border-radius: 6px;
+        }
+
+        .craft-icon::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            right: -1px;
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 2px;
+        }
+
+        .craft-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--gold-dark);
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        .craft-feature-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            color: #080600;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .craft-feature-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        .craft-video-wrap {
+            position: relative;
+            z-index: 2;
+            aspect-ratio: 9/16;
+            max-height: 600px;
+            overflow: hidden;
+            border-radius: 2px;
+        }
+
+        .craft-video-placeholder {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .craft-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .video-placeholder-icon {
+            width: 70px;
+            height: 70px;
+            border: 2px solid rgba(201, 160, 64, 0.45);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+            animation: pulseRingGold 2s ease-in-out infinite;
+        }
+
+        .video-placeholder-icon svg {
+            width: 28px;
+            height: 28px;
+            fill: var(--gold);
+            margin-left: 5px;
+        }
+
+        .video-placeholder-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.5rem;
+            letter-spacing: 0.4em;
+            color: var(--gold-dark);
+            text-transform: uppercase;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .craft-video-frame {
+            position: absolute;
+            inset: -12px;
+            border: 1px solid rgba(201, 160, 64, 0.2);
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        .craft-video-frame::before,
+        .craft-video-frame::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-color: var(--gold);
+            border-style: solid;
+            opacity: 0.55;
+        }
+
+        .craft-video-frame::before {
+            top: -1px;
+            left: -1px;
+            border-width: 2px 0 0 2px;
+        }
+
+        .craft-video-frame::after {
+            bottom: -1px;
+            right: -1px;
+            border-width: 0 2px 2px 0;
+        }
+
+        /* ===================== TESTIMONIALS ===================== */
+        .testimonials {
+            padding: 120px 60px;
+            background: var(--white);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 80px;
+        }
+
+        .testimonial-card {
+            padding: 48px 36px;
+            border: 1px solid rgba(201, 160, 64, 0.12);
+            position: relative;
+            background: linear-gradient(135deg, rgba(201, 160, 64, 0.03) 0%, transparent 100%);
+            transition: all 0.4s;
+        }
+
+        .testimonial-card:hover {
+            border-color: rgba(201, 160, 64, 0.35);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(201, 160, 64, 0.10);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 8rem;
+            color: rgba(201, 160, 64, 0.07);
+            position: absolute;
+            top: -10px;
+            left: 24px;
+            line-height: 1;
+        }
+
+        .testimonial-stars {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 20px;
+        }
+
+        .star {
+            color: var(--gold);
+            font-size: 0.7rem;
+        }
+
+        .testimonial-text {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text-mid);
+            font-style: italic;
+            margin-bottom: 28px;
+            font-weight: 400;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .author-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            color: var(--white);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .author-name {
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            color: #080600;
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        .author-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.5rem;
+            letter-spacing: 0.25em;
+            color: var(--text-light);
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        /* ===================== NEWSLETTER ===================== */
+        .newsletter {
+            padding: 120px 60px;
+            background: linear-gradient(135deg, var(--pearl), var(--off-white));
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, rgba(201, 160, 64, 0.05) 0%, transparent 70%);
+        }
+
+        .newsletter-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0;
+            margin-top: 40px;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 16px 24px;
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(201, 160, 64, 0.25);
+            border-right: none;
+            color: var(--text-dark);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .newsletter-input:focus {
+            border-color: rgba(201, 160, 64, 0.5);
+        }
+
+        .newsletter-input::placeholder {
+            color: var(--text-light);
+        }
+
+        .newsletter-btn {
+            padding: 16px 32px;
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+            border: none;
+            color: var(--white);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.55rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid rgba(201, 160, 64, 0.4);
+            border-radius: 6px;
+            font-weight: 500;
+        }
+
+        .newsletter-btn:hover {
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
+        }
+
+        /* ===================== FOOTER ===================== */
+        footer {
+            padding: 80px 60px 40px;
+            background: #0E0C08;
+            border-top: 1px solid rgba(201, 160, 64, 0.15);
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand-desc {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.45);
+            line-height: 1.8;
+            margin-top: 20px;
+            max-width: 300px;
+            font-weight: 300;
+        }
+
+        .footer-col-title {
+            font-family: 'Cinzel', serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.2em;
+            color: var(--gold);
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: grid;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            color: rgba(255, 255, 255, 0.4);
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 400;
+        }
+
+        .footer-links a::before {
+            content: '→';
+            font-size: 0.65rem;
+            color: var(--gold);
+            opacity: 0;
+            transform: translateX(-8px);
+            transition: all 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold-light);
+        }
+
+        .footer-links a:hover::before {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 28px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(201, 160, 64, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+        }
+
+        .social-link:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            background: rgba(201, 160, 64, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .social-link svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(201, 160, 64, 0.07);
+        }
+
+        .footer-copy {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.5rem;
+            letter-spacing: 0.3em;
+            color: rgba(255, 255, 255, 0.3);
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        .footer-copy span {
+            color: var(--gold);
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 32px;
+        }
+
+        .footer-legal a {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.5rem;
+            letter-spacing: 0.25em;
+            color: rgba(255, 255, 255, 0.3);
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            font-weight: 400;
+        }
+
+        .footer-legal a:hover {
+            color: var(--gold-light);
+        }
+
+        footer .logo-text {
+            color: var(--pearl);
+        }
+
+        footer .logo-sub {
+            color: var(--gold-light);
+        }
+
+        footer .logo-img {
+            height: 38px;
+            width: auto;
+            display: block;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        /* ===================== SCROLL REVEAL ===================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===================== CUSTOM CURSOR ===================== */
+        .cursor {
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 10000;
+            transition: transform 0.1s;
+            mix-blend-mode: multiply;
+        }
+
+        .cursor-ring {
+            width: 36px;
+            height: 36px;
+            border: 1px solid rgba(201, 160, 64, 0.6);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: width 0.3s, height 0.3s;
+            transform: translate(-50%, -50%);
+        }
+
+        /* ===================== MOBILE MENU ===================== */
+        .mobile-menu {
+            position: fixed;
+            inset: 0;
+            background: rgba(247, 244, 237, 0.98);
+            z-index: 200;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s;
+            backdrop-filter: blur(10px);
+        }
+
+        .mobile-menu.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .mobile-menu a {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            letter-spacing: 0.2em;
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 600;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--gold);
+        }
+
+        .mobile-close {
+            position: absolute;
+            top: 28px;
+            right: 28px;
+            font-size: 1.5rem;
+            color: var(--gold);
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-family: 'Cinzel', serif;
+        }
+
+        /* ===================== RESPONSIVE ===================== */
+
+        @media(max-width:1200px) {
+            .masterpiece-showcase {
+                grid-template-columns: 0.85fr 1.6fr;
+            }
+
+            .masterpiece-mini-row {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .hero-slide img {
+                object-position: 55% 50%;
+            }
+
+            .hero-content {
+                padding: 140px 40px 70px 40px;
+            }
+        }
+
+        @media(max-width:1100px) {
+            .masterpiece-showcase {
+                grid-template-columns: 1fr 1.4fr;
+            }
+
+            .masterpiece-mini-row {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .hero-slide img {
+                object-position: 52% 50%;
+            }
+
+            .hero-content {
+                padding: 130px 32px 60px 32px;
+            }
+        }
+
+        /* ---- Tablet / Mobile (max-width: 900px) ---- */
+        @media(max-width:900px) {
+            nav {
+                padding: 20px 24px;
+            }
+
+            .nav-links,
+            .nav-cta {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .logo-img {
+                height: 40px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                min-height: 100svh;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .hero-full-bg {
+                position: absolute;
+                inset: 0;
+                z-index: 0;
+            }
+
+            .hero-slide img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center center;
+                background: #1a1812;
+            }
+
+            .hero-content {
+                padding: clamp(100px, 18svh, 140px) 24px 30px 24px;
+                position: relative;
+                z-index: 3;
+                order: 1;
+                flex-shrink: 0;
+            }
+
+            .hero-right-space {
+                height: clamp(320px, 48svh, 500px);
+                min-height: 280px;
+                max-height: 55svh;
+                width: 100%;
+                position: relative;
+                z-index: 2;
+                order: 2;
+                flex-shrink: 0;
+            }
+
+            .hero-img-container {
+                height: 100%;
+                width: 100%;
+            }
+
+            .spec-label {
+                display: flex;
+                font-size: 0.4rem;
+            }
+
+            .spec-label-right {
+                right: 3%;
+            }
+
+            .spec-label-left {
+                left: -10px;
+            }
+
+            .spec-text {
+                font-size: 0.4rem;
+                letter-spacing: 0.15em;
+            }
+
+            .spec-line {
+                width: 24px;
+            }
+
+            /* Dots — vertically centered on right for mobile */
+            .hero-dots {
+                right: 10px;
+                bottom: auto;
+                top: 50%;
+                transform: translateY(-50%);
+                gap: 10px;
+            }
+
+            .hero-dot {
+                width: 7px;
+                height: 7px;
+            }
+
+            .hero-dot.active {
+                width: 9px;
+                height: 9px;
+            }
+
+            .hero-dot-label {
+                display: none;
+            }
+
+            .hero-tag {
+                font-size: 0.5rem;
+                letter-spacing: 0.4em;
+                margin-bottom: 20px;
+            }
+
+            .hero-title {
+                font-size: clamp(2.4rem, 8vw, 4rem);
+            }
+
+            .hero-subtitle {
+                font-size: clamp(1.2rem, 3.5vw, 2rem);
+                margin-bottom: 20px;
+            }
+
+            .hero-desc {
+                font-size: 0.9rem;
+                max-width: 100%;
+                margin-bottom: 30px;
+            }
+
+            .hero-actions {
+                gap: 16px;
+                flex-wrap: wrap;
+            }
+
+            .btn-primary {
+                padding: 14px 28px;
+                font-size: 0.55rem;
+            }
+
+            .btn-secondary {
+                font-size: 0.5rem;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 60px 24px;
+            }
+
+            .section {
+                padding: 80px 24px;
+            }
+
+            .masterpiece-showcase {
+                grid-template-columns: 1fr;
+            }
+
+            .masterpiece-featured-img {
+                min-height: 340px;
+            }
+
+            .masterpiece-mini-row {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .craft-section {
+                grid-template-columns: 1fr;
+                padding: 80px 24px;
+                gap: 60px;
+            }
+
+            .craft-video-wrap {
+                max-height: 420px;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+
+            footer {
+                padding: 60px 24px 32px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .newsletter {
+                padding: 80px 24px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-input {
+                border-right: 1px solid rgba(201, 160, 64, 0.2);
+            }
+
+            .cursor,
+            .cursor-ring {
+                display: none;
+            }
+
+            footer .logo-img {
+                height: 32px;
+            }
+        }
+
+        /* ---- Small mobile (480px - 600px) ---- */
+        @media(max-width:600px) {
+            .masterpiece-mini-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats {
+                padding: 40px 24px;
+            }
+
+            .stat-item {
+                padding: 40px 20px;
+            }
+
+            .hero-right-space {
+                height: clamp(280px, 42svh, 380px);
+                min-height: 240px;
+            }
+
+            .hero-slide img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center center;
+            }
+
+            .hero-content {
+                padding: clamp(80px, 14svh, 110px) 20px 24px 20px;
+            }
+
+            .hero-title {
+                font-size: clamp(2rem, 7vw, 3rem);
+            }
+
+            .hero-desc {
+                font-size: 0.85rem;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .logo-img {
+                height: 36px;
+            }
+
+            .hero-dots {
+                right: 6px;
+                gap: 8px;
+            }
+
+            .hero-dot {
+                width: 6px;
+                height: 6px;
+            }
+
+            .hero-dot.active {
+                width: 8px;
+                height: 8px;
+            }
+        }
+
+        @media(max-width:540px) {
+            .footer-top {
+                grid-template-columns: 1fr;
+            }
+
+            .masterpiece-mini-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-right-space {
+                height: clamp(250px, 38svh, 340px);
+                min-height: 220px;
+            }
+        }
+
+        @media(max-width:400px) {
+            .masterpiece-mini-row {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .hero-right-space {
+                height: clamp(220px, 36svh, 300px);
+                min-height: 200px;
+            }
+
+            .hero-content {
+                padding: clamp(70px, 12svh, 100px) 16px 20px 16px;
+            }
+
+            .hero-title {
+                font-size: clamp(1.7rem, 6vw, 2.4rem);
+            }
+
+            .hero-subtitle {
+                font-size: clamp(1rem, 3vw, 1.4rem);
+            }
+
+            .btn-primary {
+                padding: 12px 22px;
+                font-size: 0.5rem;
+                letter-spacing: 0.25em;
+            }
+
+            .hero-dots {
+                right: 4px;
+                gap: 7px;
+            }
+
+            .hero-dot {
+                width: 6px;
+                height: 6px;
+            }
+
+            .hero-dot.active {
+                width: 8px;
+                height: 8px;
+            }
+
+            .logo-img {
+                height: 30px;
+            }
+
+            footer .logo-img {
+                height: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-close" id="mobileClose">✕</button>
+        <a href="#collections" onclick="closeMobileMenu()">Collections</a>
+        <a href="#craft" onclick="closeMobileMenu()">Craftsmanship</a>
+        <a href="#heritage" onclick="closeMobileMenu()">Heritage</a>
+        <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+    </div>
+
+    <!-- ===================== LOADER ===================== -->
+    <div id="loader">
+        <div class="particle"
+            style="width:2px;height:2px;left:15%;animation-duration:8s;animation-delay:0s;background:#C9A040;"></div>
+        <div class="particle"
+            style="width:3px;height:3px;left:25%;animation-duration:12s;animation-delay:2s;background:#B8882A;"></div>
+        <div class="particle"
+            style="width:2px;height:2px;left:40%;animation-duration:9s;animation-delay:1s;background:#C9A040;"></div>
+        <div class="particle"
+            style="width:4px;height:4px;left:60%;animation-duration:14s;animation-delay:3s;background:#D4AF6A;"></div>
+        <div class="particle"
+            style="width:2px;height:2px;left:75%;animation-duration:10s;animation-delay:0.5s;background:#C9A040;"></div>
+        <div class="particle"
+            style="width:3px;height:3px;left:85%;animation-duration:11s;animation-delay:4s;background:#B8882A;"></div>
+
+        <div class="loader-brand">TRX ROYAL WATCH</div>
+
+        <div class="watch-svg-wrap">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <radialGradient id="dialGrad" cx="50%" cy="40%" r="60%">
+                        <stop offset="0%" stop-color="#2A2820" />
+                        <stop offset="100%" stop-color="#0D0C08" />
+                    </radialGradient>
+                    <radialGradient id="caseGrad" cx="50%" cy="30%" r="70%">
+                        <stop offset="0%" stop-color="#E8E4DC" />
+                        <stop offset="35%" stop-color="#C8C5BE" />
+                        <stop offset="65%" stop-color="#C9A040" />
+                        <stop offset="100%" stop-color="#8C6218" />
+                    </radialGradient>
+                    <radialGradient id="bezelGrad" cx="50%" cy="30%" r="70%">
+                        <stop offset="0%" stop-color="#EDD68A" />
+                        <stop offset="30%" stop-color="#C9A040" />
+                        <stop offset="60%" stop-color="#A8A5A0" />
+                        <stop offset="100%" stop-color="#C9A040" />
+                    </radialGradient>
+                    <filter id="glow">
+                        <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+                        <feMerge>
+                            <feMergeNode in="coloredBlur" />
+                            <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                    </filter>
+                    <filter id="softGlow">
+                        <feGaussianBlur stdDeviation="6" result="coloredBlur" />
+                        <feMerge>
+                            <feMergeNode in="coloredBlur" />
+                            <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                    </filter>
+                </defs>
+                <g class="w-glow">
+                    <circle cx="100" cy="100" r="85" fill="none" stroke="url(#bezelGrad)" stroke-width="0.5"
+                        opacity="0.35" filter="url(#softGlow)" />
+                </g>
+                <g class="w-lugs-top">
+                    <rect x="76" y="18" width="48" height="30" rx="6" fill="#2A2820" />
+                    <rect x="80" y="20" width="40" height="26" rx="4" fill="#1A1810" />
+                    <circle cx="88" cy="33" r="2" fill="#C9A040" opacity="0.4" />
+                    <circle cx="96" cy="33" r="2" fill="#C9A040" opacity="0.4" />
+                    <circle cx="104" cy="33" r="2" fill="#C9A040" opacity="0.4" />
+                    <circle cx="112" cy="33" r="2" fill="#C9A040" opacity="0.4" />
+                </g>
+                <g class="w-lugs-bot">
+                    <rect x="76" y="152" width="48" height="30" rx="6" fill="#2A2820" />
+                    <rect x="80" y="154" width="40" height="26" rx="4" fill="#1A1810" />
+                    <circle cx="88" cy="167" r="2" fill="#C9A040" opacity="0.4" />
+                    <circle cx="96" cy="167" r="2" fill="#C9A040" opacity="0.4" />
+                    <circle cx="104" cy="167" r="2" fill="#C9A040" opacity="0.4" />
+                    <circle cx="112" cy="167" r="2" fill="#C9A040" opacity="0.4" />
+                </g>
+                <g class="w-case">
+                    <circle cx="100" cy="100" r="68" fill="url(#caseGrad)" />
+                    <circle cx="100" cy="100" r="63" fill="#0D0C08" />
+                </g>
+                <g class="w-crown">
+                    <rect x="161" y="95" width="12" height="10" rx="3" fill="url(#caseGrad)" />
+                    <rect x="163" y="97" width="8" height="6" rx="1.5" fill="#C9A040" />
+                </g>
+                <g class="w-dial">
+                    <circle cx="100" cy="100" r="56" fill="url(#dialGrad)" />
+                    <circle cx="100" cy="100" r="52" fill="none" stroke="#C9A040" stroke-width="0.5" opacity="0.5" />
+                    <circle cx="100" cy="100" r="3" fill="#C9A040" filter="url(#glow)" />
+                </g>
+                <g class="w-markers">
+                    <rect x="98.5" y="52" width="3" height="8" rx="1" fill="#EDD68A" />
+                    <rect x="98.5" y="140" width="3" height="8" rx="1" fill="#EDD68A" />
+                    <rect x="52" y="98.5" width="8" height="3" rx="1" fill="#EDD68A" />
+                    <rect x="140" y="98.5" width="8" height="3" rx="1" fill="#EDD68A" />
+                    <circle cx="100" cy="58" r="1.5" fill="#C9A040" opacity="0.7" />
+                    <circle cx="100" cy="142" r="1.5" fill="#C9A040" opacity="0.7" />
+                    <circle cx="58" cy="100" r="1.5" fill="#C9A040" opacity="0.7" />
+                    <circle cx="142" cy="100" r="1.5" fill="#C9A040" opacity="0.7" />
+                    <rect x="129" y="60" width="3" height="7" rx="1" fill="#C8C5BE" transform="rotate(30 131 63.5)" />
+                    <rect x="129" y="133" width="3" height="7" rx="1" fill="#C8C5BE"
+                        transform="rotate(-30 131 136.5)" />
+                    <rect x="62" y="60" width="3" height="7" rx="1" fill="#C8C5BE" transform="rotate(-30 64 63.5)" />
+                    <rect x="62" y="133" width="3" height="7" rx="1" fill="#C8C5BE" transform="rotate(30 64 136.5)" />
+                    <text x="100" y="78" text-anchor="middle" font-family="serif" font-size="6" fill="#EDD68A"
+                        letter-spacing="2" opacity="0.9">TRX</text>
+                    <text x="100" y="86" text-anchor="middle" font-family="serif" font-size="3.5" fill="#C9A040"
+                        letter-spacing="1" opacity="0.7">ROYAL</text>
+                    <rect x="114" y="97" width="14" height="9" rx="1" fill="#0D0C08" stroke="#C9A040"
+                        stroke-width="0.5" />
+                    <text x="121" y="104" text-anchor="middle" font-family="sans-serif" font-size="5"
+                        fill="#EDD68A">08</text>
+                </g>
+                <g class="w-hands">
+                    <path d="M100 100 L93 70 L100 66 L107 70 Z" fill="url(#caseGrad)" filter="url(#glow)" />
+                    <path d="M100 100 L98.5 54 L100 50 L101.5 54 Z" fill="#E8E4DC" filter="url(#glow)" />
+                    <line x1="100" y1="100" x2="100" y2="56" stroke="#C9A040" stroke-width="1" stroke-linecap="round" />
+                    <line x1="100" y1="100" x2="100" y2="116" stroke="#C9A040" stroke-width="1.5"
+                        stroke-linecap="round" />
+                    <circle cx="100" cy="100" r="4" fill="#C9A040" filter="url(#glow)" />
+                    <circle cx="100" cy="100" r="2" fill="#0D0C08" />
+                </g>
+                <circle class="w-crystal" cx="100" cy="100" r="56" fill="white" />
+                <g class="w-bezel">
+                    <circle cx="100" cy="100" r="64" fill="none" stroke="url(#bezelGrad)" stroke-width="6" />
+                    <circle cx="100" cy="38" r="1.5" fill="#EDD68A" opacity="0.8" />
+                    <circle cx="100" cy="162" r="1.5" fill="#EDD68A" opacity="0.8" />
+                    <circle cx="38" cy="100" r="1.5" fill="#EDD68A" opacity="0.8" />
+                    <circle cx="162" cy="100" r="1.5" fill="#EDD68A" opacity="0.8" />
+                </g>
+            </svg>
+        </div>
+
+        <div class="loader-progress">
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+            <div class="progress-text">CRAFTING PERFECTION</div>
+        </div>
+    </div>
+
+    <!-- ===================== MAIN SITE ===================== -->
+    <div id="main-site">
+
+        <!-- NAV — PERMANENT WHITE -->
+        <nav id="mainNav">
+            <a href="#" class="nav-logo">
+                <img src="https://i.postimg.cc/0Q06J8ST/Chat-GPT-Image-May-9-2026-10-20-00-AM.png"
+                    alt="TRX Royal Watch Logo" class="logo-img">
+                <div>
+                    <span class="logo-text">TRX</span>
+                    <span class="logo-sub">Royal Watch · Est. 1987</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#collections">Collections</a></li>
+                <li><a href="#craft">Craftsmanship</a></li>
+                <li><a href="#heritage">Heritage</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#collections" class="nav-cta"><span>Explore Now</span></a>
+            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+        </nav>
+
+        <!-- HERO — FULL BLEED CAROUSEL (UNIFIED 5 SLIDES FOR ALL DEVICES) -->
+        <section class="hero" id="hero">
+            <div class="hero-full-bg" id="heroFullBg">
+
+                <!-- Slide 0: Video -->
+                <div class="hero-slide hero-slide-video active" data-type="video" data-index="0">
+                    <video autoplay muted playsinline class="hero-bg-video">
+                        <source src="videos/14.mp4" type="video/mp4">
+                    </video>
+                </div>
+
+                <!-- Slide 1: Image -->
+                <div class="hero-slide" data-type="image" data-index="1" data-duration="6000">
+                    <img src="https://i.postimg.cc/NFDrsx8c/KF-Mecha-36-INT-1-4c345a1a-2d39-4ccc-932a-b03ecb5326ce.webp"
+                        alt="TRX Royal Watch" loading="eager"
+                        onerror="this.src='data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 900&quot;><rect width=&quot;800&quot; height=&quot;900&quot; fill=&quot;%231a1812&quot;/><circle cx=&quot;500&quot; cy=&quot;450&quot; r=&quot;280&quot; fill=&quot;none&quot; stroke=&quot;%23C9A040&quot; stroke-width=&quot;2&quot; opacity=&quot;0.4&quot;/><text x=&quot;500&quot; y=&quot;440&quot; text-anchor=&quot;middle&quot; fill=&quot;%23C9A040&quot; font-size=&quot;48&quot; font-family=&quot;serif&quot;>TRX</text><text x=&quot;500&quot; y=&quot;500&quot; text-anchor=&quot;middle&quot; fill=&quot;%23C9A040&quot; font-size=&quot;24&quot; font-family=&quot;serif&quot;>ROYAL</text></svg>'">
+                </div>
+
+                <!-- Slide 2: Image (hidden on desktop, shown on mobile with new image) -->
+                <div class="hero-slide" data-type="image" data-index="2" data-duration="6000">
+                    <img src="https://i.postimg.cc/xC7JnkyT/12.webp" alt="TRX Royal Watch" loading="lazy"
+                        onerror="this.src='data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 900&quot;><rect width=&quot;800&quot; height=&quot;900&quot; fill=&quot;%231a1812&quot;/><circle cx=&quot;500&quot; cy=&quot;450&quot; r=&quot;280&quot; fill=&quot;none&quot; stroke=&quot;%23C9A040&quot; stroke-width=&quot;2&quot; opacity=&quot;0.4&quot;/><text x=&quot;500&quot; y=&quot;440&quot; text-anchor=&quot;middle&quot; fill=&quot;%23C9A040&quot; font-size=&quot;48&quot; font-family=&quot;serif&quot;>TRX</text><text x=&quot;500&quot; y=&quot;500&quot; text-anchor=&quot;middle&quot; fill=&quot;%23C9A040&quot; font-size=&quot;24&quot; font-family=&quot;serif&quot;>ROYAL</text></svg>'">
+                </div>
+
+                <!-- Slide 3: Video -->
+                <div class="hero-slide hero-slide-video" data-type="video" data-index="3">
+                    <video autoplay muted playsinline class="hero-bg-video">
+                        <source src="videos/15.mp4" type="video/mp4">
+                    </video>
+                </div>
+
+                <!-- Slide 4: Image -->
+                <div class="hero-slide" data-type="image" data-index="4" data-duration="6000">
+                    <img src="https://i.postimg.cc/C1dB3CDn/13.webp" alt="TRX Royal Watch" loading="lazy"
+                        onerror="this.src='data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 800 900&quot;><rect width=&quot;800&quot; height=&quot;900&quot; fill=&quot;%231a1812&quot;/><circle cx=&quot;500&quot; cy=&quot;450&quot; r=&quot;280&quot; fill=&quot;none&quot; stroke=&quot;%23C9A040&quot; stroke-width=&quot;2&quot; opacity=&quot;0.4&quot;/><text x=&quot;500&quot; y=&quot;440&quot; text-anchor=&quot;middle&quot; fill=&quot;%23C9A040&quot; font-size=&quot;48&quot; font-family=&quot;serif&quot;>TRX</text><text x=&quot;500&quot; y=&quot;500&quot; text-anchor=&quot;middle&quot; fill=&quot;%23C9A040&quot; font-size=&quot;24&quot; font-family=&quot;serif&quot;>ROYAL</text></svg>'">
+                </div>
+            </div>
+
+            <!-- Unified Dots (5 dots for all devices, one will be hidden on desktop) -->
+            <div class="hero-dots" id="heroDots">
+                <span class="hero-dot active" data-index="0">
+                    <span class="hero-dot-label">Film</span>
+                </span>
+                <span class="hero-dot" data-index="1">
+                    <span class="hero-dot-label">Image 1</span>
+                </span>
+                <span class="hero-dot" data-index="2">
+                    <span class="hero-dot-label">Image 2</span>
+                </span>
+                <span class="hero-dot" data-index="3">
+                    <span class="hero-dot-label">Film</span>
+                </span>
+                <span class="hero-dot" data-index="4">
+                    <span class="hero-dot-label">Image 3</span>
+                </span>
+            </div>
+
+            <div class="hero-parallax-bg" id="parallaxBg"></div>
+            <div class="hero-lines"></div>
+            <div class="hero-diagonal"></div>
+
+            <div class="hero-content">
+                <div class="hero-tag">Since 1987 · Swiss Precision</div>
+                <h1 class="hero-title">
+                    <span class="title-accent">TRX</span><br>Royal
+                </h1>
+                <p class="hero-subtitle">Where Time Becomes Art</p>
+                <p class="hero-desc">
+                    Each TRX Royal timepiece is a masterwork of precision engineering and artistic vision —
+                    handcrafted over 400 hours by our master watchmakers in Geneva.
+                </p>
+                <div class="hero-actions">
+                    <a href="#collections" class="btn-primary"><span>Discover Collection</span></a>
+                    <a href="#craft" class="btn-secondary">Our Craft</a>
+                </div>
+            </div>
+
+            <div class="hero-right-space">
+                <div class="hero-img-container">
+                    <div class="spec-label spec-label-right" style="top:28%;">
+                        <div class="spec-dot"></div>
+                        <div class="spec-line"></div>
+                        <span class="spec-text">Sapphire Crystal</span>
+                    </div>
+                    <div class="spec-label spec-label-right" style="top:54%;">
+                        <div class="spec-dot"></div>
+                        <div class="spec-line"></div>
+                        <span class="spec-text">300m Water Resistant</span>
+                    </div>
+                    <div class="spec-label spec-label-left" style="top:41%;left:-30px;">
+                        <div class="spec-dot"></div>
+                        <div class="spec-line" style="background:linear-gradient(270deg,var(--gold),transparent);">
+                        </div>
+                        <span class="spec-text">Swiss Movement</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TICKER -->
+        <div class="ticker">
+            <div class="ticker-track">
+                <span class="ticker-item">Free Worldwide Shipping</span>
+                <span class="ticker-item">5 Year Swiss Warranty</span>
+                <span class="ticker-item">Certified Swiss Movement</span>
+                <span class="ticker-item">Handcrafted Excellence</span>
+                <span class="ticker-item">Sapphire Crystal Glass</span>
+                <span class="ticker-item">Limited Edition Pieces</span>
+                <span class="ticker-item">White Glove Delivery</span>
+                <span class="ticker-item">Free Worldwide Shipping</span>
+                <span class="ticker-item">5 Year Swiss Warranty</span>
+                <span class="ticker-item">Certified Swiss Movement</span>
+                <span class="ticker-item">Handcrafted Excellence</span>
+                <span class="ticker-item">Sapphire Crystal Glass</span>
+                <span class="ticker-item">Limited Edition Pieces</span>
+                <span class="ticker-item">White Glove Delivery</span>
+            </div>
+        </div>
+
+        <!-- STATS -->
+        <section class="stats reveal">
+            <div class="stat-item">
+                <div class="stat-number">37+</div>
+                <div class="stat-label">Years of Mastery</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">142</div>
+                <div class="stat-label">Unique Complications</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">400h</div>
+                <div class="stat-label">Per Timepiece</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">98K+</div>
+                <div class="stat-label">Collectors Worldwide</div>
+            </div>
+        </section>
+
+        <!-- MASTERPIECE COLLECTION -->
+        <section class="section" id="collections">
+            <div class="section-header reveal">
+                <div class="section-eyebrow">The Collection</div>
+                <h2 class="section-title">Masterpieces of Time</h2>
+                <p class="section-desc">Each piece tells a story of relentless pursuit — of perfection, of beauty, of
+                    the extraordinary.</p>
+            </div>
+
+            <div class="masterpiece-showcase" id="masterpieceShowcase">
+                <div class="masterpiece-featured-card" data-delay="0">
+                    <div class="masterpiece-featured-img">
+                        <img src="https://i.postimg.cc/nrpDfWmn/1.webp" alt="Royal Chronograph I"
+                            onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><svg width=\'48\' height=\'48\' viewBox=\'0 0 48 48\' fill=\'none\'><circle cx=\'24\' cy=\'24\' r=\'20\' stroke=\'%23C9A040\' stroke-width=\'2\' opacity=\'0.5\'/><circle cx=\'24\' cy=\'24\' r=\'10\' stroke=\'%23C9A040\' stroke-width=\'1\' opacity=\'0.3\'/></svg><span>Product<br>Image</span></div>'">
+                    </div>
+                    <div class="masterpiece-featured-info">
+                        <span class="badge">Bestseller</span>
+                        <span class="series">Signature Series</span>
+                        <h3 class="name">Royal Chronograph I</h3>
+                        <p class="price">$5,800</p>
+                        <a href="#" class="buy-btn">Buy Now</a>
+                    </div>
+                </div>
+
+                <div class="masterpiece-mini-grid-wrap">
+                    <div class="masterpiece-mini-row" id="miniRow1">
+                        <div class="mini-card-new" data-delay="1">
+                            <div class="mini-card-new-img">
+                                <img src="https://i.postimg.cc/MHqQJLBq/2.webp" alt="TRX Obsidian"
+                                    onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><span>TRX<br>Obsidian</span></div>'">
+                            </div>
+                            <div class="mini-card-new-info">
+                                <span class="mc-name">TRX Obsidian</span>
+                                <span class="mc-price">$7,450</span>
+                                <a href="#" class="mc-buy">Buy Now</a>
+                            </div>
+                        </div>
+                        <div class="mini-card-new" data-delay="2">
+                            <div class="mini-card-new-img">
+                                <img src="https://i.postimg.cc/VvmCPhtQ/3.webp" alt="TRX Vintage Gold"
+                                    onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><span>Vintage<br>Gold</span></div>'">
+                            </div>
+                            <div class="mini-card-new-info">
+                                <span class="mc-name">TRX Vintage Gold</span>
+                                <span class="mc-price">$10,700</span>
+                                <a href="#" class="mc-buy">Buy Now</a>
+                            </div>
+                        </div>
+                        <div class="mini-card-new" data-delay="3">
+                            <div class="mini-card-new-img">
+                                <img src="https://i.postimg.cc/KjxMhWM6/4.webp" alt="TRX Titanium Pro"
+                                    onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><span>Titanium<br>Pro</span></div>'">
+                            </div>
+                            <div class="mini-card-new-info">
+                                <span class="mc-name">TRX Titanium Pro</span>
+                                <span class="mc-price">$4,150</span>
+                                <a href="#" class="mc-buy">Buy Now</a>
+                            </div>
+                        </div>
+                        <div class="mini-card-new" data-delay="4">
+                            <div class="mini-card-new-img">
+                                <img src="https://i.postimg.cc/d3wycfyg/5.webp" alt="TRX Sapphire Night"
+                                    onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><span>Sapphire<br>Night</span></div>'">
+                            </div>
+                            <div class="mini-card-new-info">
+                                <span class="mc-name">TRX Sapphire Night</span>
+                                <span class="mc-price">$13,500</span>
+                                <a href="#" class="mc-buy">Buy Now</a>
+                            </div>
+                        </div>
+                        <div class="mini-card-new" data-delay="5">
+                            <div class="mini-card-new-img">
+                                <img src="https://i.postimg.cc/Hndy1NyR/6.webp" alt="TRX Platinum Edition"
+                                    onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><span>Platinum<br>Edition</span></div>'">
+                            </div>
+                            <div class="mini-card-new-info">
+                                <span class="mc-name">TRX Platinum Edition</span>
+                                <span class="mc-price">$22,300</span>
+                                <a href="#" class="mc-buy">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="masterpiece-mini-row" id="miniRow2">
+                        <div class="mini-card-new" data-delay="6">
+                            <div class="mini-card-new-img">
+                                <img src="https://i.postimg.cc/Y0MWBPWD/7.webp" alt="TRX Moonphase"
+                                    onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><span>Moonphase</span></div>'">
+                            </div>
+                            <div class="mini-card-new-info">
+                                <span class="mc-name">TRX Moonphase</span>
+                                <span class="mc-price">$9,150</span>
+                                <a href="#" class="mc-buy">Buy Now</a>
+                            </div>
+                        </div>
+                        <div class="mini-card-new" data-delay="7">
+                            <div class="mini-card-new-img">
+                                <img src="https://i.postimg.cc/8cN6gY6n/8.webp" alt="TRX Diver Pro"
+                                    onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><span>Diver<br>Pro</span></div>'">
+                            </div>
+                            <div class="mini-card-new-info">
+                                <span class="mc-name">TRX Diver Pro</span>
+                                <span class="mc-price">$4,950</span>
+                                <a href="#" class="mc-buy">Buy Now</a>
+                            </div>
+                        </div>
+                        <div class="mini-card-new" data-delay="8">
+                            <div class="mini-card-new-img">
+                                <img src="https://i.postimg.cc/j2t7Y17F/9.webp" alt="TRX Heritage Silver"
+                                    onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><span>Heritage<br>Silver</span></div>'">
+                            </div>
+                            <div class="mini-card-new-info">
+                                <span class="mc-name">TRX Heritage Silver</span>
+                                <span class="mc-price">$6,900</span>
+                                <a href="#" class="mc-buy">Buy Now</a>
+                            </div>
+                        </div>
+                        <div class="mini-card-new" data-delay="9">
+                            <div class="mini-card-new-img">
+                                <img src="https://i.postimg.cc/cC0nGznD/10.webp" alt="TRX Tourbillon"
+                                    onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><span>Tourbillon</span></div>'">
+                            </div>
+                            <div class="mini-card-new-info">
+                                <span class="mc-name">TRX Tourbillon</span>
+                                <span class="mc-price">$28,900</span>
+                                <a href="#" class="mc-buy">Buy Now</a>
+                            </div>
+                        </div>
+                        <div class="mini-card-new" data-delay="10">
+                            <div class="mini-card-new-img">
+                                <img src="https://i.postimg.cc/T1fDvsD9/11.webp" alt="TRX Grand Complication"
+                                    onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><span>Grand<br>Complication</span></div>'">
+                            </div>
+                            <div class="mini-card-new-info">
+                                <span class="mc-name">TRX Grand Complication</span>
+                                <span class="mc-price">$44,000</span>
+                                <a href="#" class="mc-buy">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CRAFTSMANSHIP -->
+        <section class="craft-section" id="craft">
+            <div class="craft-content">
+                <div class="section-eyebrow reveal" style="justify-content:flex-start;margin-bottom:20px;">
+                    <span
+                        style="width:40px;height:1px;background:linear-gradient(90deg,transparent,var(--gold));flex-shrink:0;"></span>
+                    The Art of Making
+                </div>
+                <h2 class="section-title reveal">Crafted by<br>Master Hands</h2>
+                <p class="hero-desc reveal" style="max-width:480px;">Every TRX Royal watch is born from an obsessive
+                    devotion to craft — 400+ hours of meticulous work, each component polished to perfection.</p>
+
+                <div class="craft-features">
+                    <div class="craft-feature reveal">
+                        <div class="craft-icon">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="9" />
+                                <line x1="12" y1="7" x2="12" y2="12" />
+                                <line x1="12" y1="12" x2="16" y2="14" />
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="craft-feature-title">Swiss Movement</div>
+                            <p class="craft-feature-desc">Each movement assembled by a single master watchmaker —
+                                calibrated to ±2 seconds per day accuracy.</p>
+                        </div>
+                    </div>
+                    <div class="craft-feature reveal">
+                        <div class="craft-icon">
+                            <svg viewBox="0 0 24 24">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="craft-feature-title">Sapphire Crystal</div>
+                            <p class="craft-feature-desc">Anti-reflective double-dome sapphire crystal,
+                                scratch-resistant with 99.9% transparency.</p>
+                        </div>
+                    </div>
+                    <div class="craft-feature reveal">
+                        <div class="craft-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="craft-feature-title">Lifetime Warranty</div>
+                            <p class="craft-feature-desc">Every TRX Royal comes with complimentary annual servicing and
+                                a 5-year movement warranty.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="craft-video-wrap reveal">
+                <div class="craft-video-placeholder">
+                    <video autoplay muted loop playsinline class="craft-video">
+                        <source src="videos/19.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="craft-video-frame"></div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS -->
+        <section class="testimonials section" id="heritage">
+            <div class="section-header reveal">
+                <div class="section-eyebrow">Collectors Speak</div>
+                <h2 class="section-title">Words of Distinction</h2>
+                <p class="section-desc">From boardrooms to ballrooms — those who wear TRX Royal speak of an experience
+                    unlike any other.</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-stars"><span class="star">★</span><span class="star">★</span><span
+                            class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+                    <p class="testimonial-text">The Royal Chronograph is more than a timepiece — it is a statement.
+                        Every glance at the wrist is a reminder of what true luxury feels like. Incomparable.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">J</div>
+                        <div>
+                            <div class="author-name">James Thornton</div>
+                            <div class="author-title">CEO, Thornton & Co. · London</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-stars"><span class="star">★</span><span class="star">★</span><span
+                            class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+                    <p class="testimonial-text">I have collected watches for 20 years. TRX Royal stands apart — the
+                        finishing is extraordinary, the movement poetry in motion. My most prized possession.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">A</div>
+                        <div>
+                            <div class="author-name">Alexander Reeves</div>
+                            <div class="author-title">Art Collector · New York</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-stars"><span class="star">★</span><span class="star">★</span><span
+                            class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+                    <p class="testimonial-text">Gifted the Obsidian to my husband on our anniversary. He has not taken
+                        it off since. The packaging alone was worth the price — pure theatre.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">I</div>
+                        <div>
+                            <div class="author-name">Isabella Moreau</div>
+                            <div class="author-title">Entrepreneur · Paris</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEWSLETTER -->
+        <section class="newsletter">
+            <div class="newsletter-content reveal">
+                <div class="section-eyebrow" style="justify-content:center;margin-bottom:20px;">Private Access</div>
+                <h2 class="section-title">Join the Inner Circle</h2>
+                <p class="section-desc" style="margin-top:16px;">Be the first to know about limited editions, exclusive
+                    events, and curated invitations reserved for TRX Royal collectors.</p>
+                <div class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Your email address">
+                    <button class="newsletter-btn">Request Access</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer id="contact">
+            <div class="footer-top">
+                <div>
+                    <a href="#" class="nav-logo" style="margin-bottom:20px;display:inline-flex;">
+                        <img src="https://i.postimg.cc/0Q06J8ST/Chat-GPT-Image-May-9-2026-10-20-00-AM.png"
+                            alt="TRX Royal Watch Logo" class="logo-img">
+                        <div style="margin-left:12px;">
+                            <span class="logo-text">TRX Royal</span>
+                            <span class="logo-sub">Est. 1987 · Geneva</span>
+                        </div>
+                    </a>
+                    <p class="footer-brand-desc">Crafting extraordinary timepieces for those who understand that true
+                        luxury lies in the details invisible to the untrained eye.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Instagram"><svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg></a>
+                        <a href="#" class="social-link" aria-label="Facebook"><svg viewBox="0 0 24 24">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg></a>
+                        <a href="#" class="social-link" aria-label="X"><svg viewBox="0 0 24 24">
+                                <path
+                                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                            </svg></a>
+                        <a href="#" class="social-link" aria-label="YouTube"><svg viewBox="0 0 24 24">
+                                <path
+                                    d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z" />
+                            </svg></a>
+                        <a href="#" class="social-link" aria-label="WhatsApp"><svg viewBox="0 0 24 24">
+                                <path
+                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" />
+                            </svg></a>
+                    </div>
+                </div>
+                <div>
+                    <div class="footer-col-title">Collections</div>
+                    <ul class="footer-links">
+                        <li><a href="#">Royal Chronograph</a></li>
+                        <li><a href="#">TRX Obsidian</a></li>
+                        <li><a href="#">Vintage Gold</a></li>
+                        <li><a href="#">Titanium Pro</a></li>
+                        <li><a href="#">Limited Editions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="footer-col-title">Boutiques</div>
+                    <ul class="footer-links">
+                        <li><a href="#">London · Mayfair</a></li>
+                        <li><a href="#">New York · 5th Avenue</a></li>
+                        <li><a href="#">Dubai · The Palm</a></li>
+                        <li><a href="#">Geneva · Rue du Rhône</a></li>
+                        <li><a href="#">Tokyo · Ginza</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="footer-col-title">Contact</div>
+                    <ul class="footer-links">
+                        <li><a href="#">Bespoke Creation</a></li>
+                        <li><a href="#">Watch Servicing</a></li>
+                        <li><a href="#">Online Concierge</a></li>
+                        <li><a href="#">Press & Media</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-copy">© 2026 <span>TRX Royal Watch</span>. All rights reserved. Crafted in Geneva.
+                </div>
+                <div class="footer-legal">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </footer>
+
+    </div><!-- end #main-site -->
+
+    <script>
+        // ---- LOADER ----
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const loader = document.getElementById('loader');
+                loader.classList.add('loader-exit');
+                setTimeout(() => { loader.style.display = 'none'; }, 800);
+            }, 5200);
+        });
+
+        // ---- CUSTOM CURSOR ----
+        const cursor = document.getElementById('cursor');
+        const cursorRing = document.getElementById('cursorRing');
+        let mouseX = 0,
+            mouseY = 0,
+            ringX = 0,
+            ringY = 0;
+        document.addEventListener('mousemove', e => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursor.style.left = mouseX - 4 + 'px';
+            cursor.style.top = mouseY - 4 + 'px';
+        });
+
+        function animateCursor() {
+            ringX += (mouseX - ringX) * 0.12;
+            ringY += (mouseY - ringY) * 0.12;
+            cursorRing.style.left = ringX + 'px';
+            cursorRing.style.top = ringY + 'px';
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.style.transform = 'scale(2.5)';
+                cursorRing.style.width = '60px';
+                cursorRing.style.height = '60px';
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.style.transform = 'scale(1)';
+                cursorRing.style.width = '36px';
+                cursorRing.style.height = '36px';
+            });
+        });
+
+        // ---- PARALLAX ----
+        const parallaxBg = document.getElementById('parallaxBg');
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            if (parallaxBg) parallaxBg.style.transform = `translateY(${scrollY * 0.15}px)`;
+        });
+
+        // ---- HERO CAROUSEL (UNIFIED — 5 SLIDES FOR ALL DEVICES) ----
+        const allHeroSlides = document.querySelectorAll('.hero-slide');
+        const allHeroDots = document.querySelectorAll('.hero-dot');
+        const heroSection = document.getElementById('hero');
+        let currentSlide = 0;
+        let carouselTimer = null;
+        let isPaused = false;
+
+        // Video tracking
+        let currentVideo = null;
+        let videoEndedHandler = null;
+        let videoFallbackTimeout = null;
+
+        function getVisibleSlides() {
+            return Array.from(allHeroSlides).filter(s => {
+                return window.getComputedStyle(s).display !== 'none';
+            });
+        }
+
+        function cleanupVideo() {
+            if (currentVideo && videoEndedHandler) {
+                currentVideo.removeEventListener('ended', videoEndedHandler);
+                currentVideo.pause();
+            }
+            if (videoFallbackTimeout) {
+                clearTimeout(videoFallbackTimeout);
+                videoFallbackTimeout = null;
+            }
+            currentVideo = null;
+            videoEndedHandler = null;
+        }
+
+        function goToSlide(index) {
+            const visibleSlides = getVisibleSlides();
+            if (visibleSlides.length === 0 || index >= visibleSlides.length) return;
+            if (index === currentSlide && visibleSlides[currentSlide]?.classList.contains('active')) return;
+
+            // Clean up any playing video from previous slide
+            cleanupVideo();
+            if (carouselTimer) clearTimeout(carouselTimer);
+            if (videoFallbackTimeout) clearTimeout(videoFallbackTimeout);
+
+            visibleSlides.forEach(s => s.classList.remove('active'));
+            allHeroDots.forEach(d => d.classList.remove('active'));
+
+            visibleSlides[index].classList.add('active');
+            if (allHeroDots[index]) allHeroDots[index].classList.add('active');
+            currentSlide = index;
+
+            const activeSlide = visibleSlides[index];
+            const slideType = activeSlide.getAttribute('data-type');
+
+            if (slideType === 'video') {
+                // Video slide — wait for video to end
+                const video = activeSlide.querySelector('video');
+                if (video) {
+                    currentVideo = video;
+                    video.currentTime = 0;
+                    video.play().catch(() => {
+                        // If autoplay fails, use fallback
+                        scheduleFallbackForVideo();
+                    });
+                    videoEndedHandler = () => {
+                        cleanupVideo();
+                        nextSlide();
+                    };
+                    video.addEventListener('ended', videoEndedHandler);
+                    // Fallback: if video doesn't end within 30 seconds, move on
+                    videoFallbackTimeout = setTimeout(() => {
+                        if (currentVideo) {
+                            cleanupVideo();
+                            nextSlide();
+                        }
+                    }, 30000);
+                } else {
+                    // No video element found, use default timing
+                    resetCarouselTimer();
+                }
+            } else {
+                // Image slide — use data-duration (6000ms = 6 seconds)
+                resetCarouselTimer();
+            }
+        }
+
+        function scheduleFallbackForVideo() {
+            // If video fails to autoplay, advance after 8 seconds
+            videoFallbackTimeout = setTimeout(() => {
+                if (currentVideo) {
+                    cleanupVideo();
+                    nextSlide();
+                }
+            }, 8000);
+        }
+
+        function getSlideDuration(index) {
+            const visibleSlides = getVisibleSlides();
+            if (index >= visibleSlides.length) return 6000;
+            const slide = visibleSlides[index];
+            const slideType = slide.getAttribute('data-type');
+            if (slideType === 'video') {
+                // Video duration is handled by 'ended' event, but provide a max fallback
+                return 30000;
+            }
+            const dur = parseInt(slide.getAttribute('data-duration') || '6000');
+            return dur;
+        }
+
+        function nextSlide() {
+            const visibleSlides = getVisibleSlides();
+            if (visibleSlides.length === 0) return;
+            const next = (currentSlide + 1) % visibleSlides.length;
+            goToSlide(next);
+        }
+
+        function resetCarouselTimer() {
+            if (carouselTimer) clearTimeout(carouselTimer);
+            if (isPaused) return;
+            const activeSlide = getVisibleSlides()[currentSlide];
+            if (activeSlide && activeSlide.getAttribute('data-type') === 'video') {
+                // Video slides are handled by the 'ended' event, don't set a fixed timer
+                return;
+            }
+            const duration = getSlideDuration(currentSlide);
+            carouselTimer = setTimeout(() => {
+                nextSlide();
+            }, duration);
+        }
+
+        function initCarousel() {
+            cleanupVideo();
+            if (carouselTimer) clearTimeout(carouselTimer);
+            if (videoFallbackTimeout) clearTimeout(videoFallbackTimeout);
+            const visibleSlides = getVisibleSlides();
+            visibleSlides.forEach(s => s.classList.remove('active'));
+            allHeroDots.forEach(d => d.classList.remove('active'));
+            if (visibleSlides.length > 0) {
+                visibleSlides[0].classList.add('active');
+                if (allHeroDots[0]) allHeroDots[0].classList.add('active');
+            }
+            currentSlide = 0;
+            const firstSlide = visibleSlides[0];
+            if (firstSlide && firstSlide.getAttribute('data-type') === 'video') {
+                const video = firstSlide.querySelector('video');
+                if (video) {
+                    currentVideo = video;
+                    video.currentTime = 0;
+                    video.play().catch(() => {
+                        scheduleFallbackForVideo();
+                    });
+                    videoEndedHandler = () => {
+                        cleanupVideo();
+                        nextSlide();
+                    };
+                    video.addEventListener('ended', videoEndedHandler);
+                    videoFallbackTimeout = setTimeout(() => {
+                        if (currentVideo) {
+                            cleanupVideo();
+                            nextSlide();
+                        }
+                    }, 30000);
+                }
+            } else {
+                resetCarouselTimer();
+            }
+        }
+
+        function pauseCarousel() {
+            isPaused = true;
+            if (carouselTimer) clearTimeout(carouselTimer);
+        }
+
+        function resumeCarousel() {
+            isPaused = false;
+            const activeSlide = getVisibleSlides()[currentSlide];
+            if (activeSlide && activeSlide.getAttribute('data-type') !== 'video') {
+                resetCarouselTimer();
+            }
+        }
+
+        // Dot clicks
+        allHeroDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const dotIndex = parseInt(dot.getAttribute('data-index') || '0');
+                const visibleSlides = getVisibleSlides();
+                const targetSlide = visibleSlides.findIndex(s => parseInt(s.getAttribute('data-index') || '0') === dotIndex);
+                if (targetSlide >= 0) {
+                    goToSlide(targetSlide);
+                }
+            });
+        });
+
+        // Pause on hover
+        if (heroSection) {
+            heroSection.addEventListener('mouseenter', pauseCarousel);
+            heroSection.addEventListener('mouseleave', resumeCarousel);
+        }
+
+        // Touch swipe
+        let touchStartX = 0;
+        let touchEndX = 0;
+        if (heroSection) {
+            heroSection.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+            heroSection.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                const diff = touchStartX - touchEndX;
+                if (Math.abs(diff) > 50) {
+                    const visibleSlides = getVisibleSlides();
+                    if (visibleSlides.length === 0) return;
+                    if (diff > 0) {
+                        const next = (currentSlide + 1) % visibleSlides.length;
+                        goToSlide(next);
+                    } else {
+                        const prev = (currentSlide - 1 + visibleSlides.length) % visibleSlides.length;
+                        goToSlide(prev);
+                    }
+                }
+            });
+        }
+
+        /* ===== ADDED: Dynamic slide/dot adjustment for desktop vs mobile ===== */
+        function updateHeroForDevice() {
+            const isMobile = window.innerWidth <= 900;
+            const slide2 = document.querySelector('.hero-slide[data-index="2"]');
+            const dot2 = document.querySelector('.hero-dot[data-index="2"]');
+
+            if (!isMobile) {
+                // Desktop: hide image 2 and its dot
+                if (slide2) slide2.style.display = 'none';
+                if (dot2) dot2.style.display = 'none';
+                // Keep original images for slides 1 and 4
+            } else {
+                // Mobile: show all slides and replace images with the three new ones
+                if (slide2) slide2.style.display = ''; // restore default display
+                if (dot2) dot2.style.display = '';
+
+                const slide1 = document.querySelector('.hero-slide[data-index="1"]');
+                const slide4 = document.querySelector('.hero-slide[data-index="4"]');
+
+                if (slide1) {
+                    const img = slide1.querySelector('img');
+                    if (img) img.setAttribute('src', 'https://i.postimg.cc/7Zhg8TzL/16.webp');
+                }
+                if (slide2) {
+                    const img = slide2.querySelector('img');
+                    if (img) img.setAttribute('src', 'https://i.postimg.cc/T31rMWbw/17.webp');
+                }
+                if (slide4) {
+                    const img = slide4.querySelector('img');
+                    if (img) img.setAttribute('src', 'https://i.postimg.cc/pLrDbnj2/18.webp');
+                }
+            }
+
+            // Reinitialize carousel with the updated slide set
+            initCarousel();
+        }
+
+        // Apply on load (before initial initCarousel call)
+        updateHeroForDevice();
+
+        // Resize handler: update and reinitialize
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                updateHeroForDevice();
+            }, 300);
+        });
+
+        // ---- MOUSE PARALLAX ON HERO ----
+        if (heroSection) {
+            heroSection.addEventListener('mousemove', (e) => {
+                const rect = heroSection.getBoundingClientRect();
+                const cx = rect.width / 2,
+                    cy = rect.height / 2;
+                const dx = (e.clientX - rect.left - cx) / cx;
+                const dy = (e.clientY - rect.top - cy) / cy;
+                const visibleSlides = getVisibleSlides();
+                if (visibleSlides.length > 0 && currentSlide < visibleSlides.length) {
+                    const activeSlide = visibleSlides[currentSlide];
+                    if (activeSlide && activeSlide.querySelector('img')) {
+                        activeSlide.querySelector('img').style.transform =
+                            `scale(1.04) translate(${dx * -8}px, ${dy * -5}px)`;
+                    }
+                }
+            });
+            heroSection.addEventListener('mouseleave', () => {
+                const visibleSlides = getVisibleSlides();
+                visibleSlides.forEach(s => {
+                    const img = s.querySelector('img');
+                    if (img) img.style.transform = 'scale(1)';
+                });
+            });
+        }
+
+        // ---- SCROLL REVEAL ----
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => { entry.target.classList.add('visible'); }, 100);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        reveals.forEach(el => observer.observe(el));
+
+        // ---- MASTERPIECE CARDS STAGGERED REVEAL ----
+        const showcaseObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const showcase = entry.target;
+                    const featuredCard = showcase.querySelector('.masterpiece-featured-card');
+                    if (featuredCard) {
+                        setTimeout(() => { featuredCard.classList.add('revealed'); }, 150);
+                    }
+                    const allMiniCards = showcase.querySelectorAll('.mini-card-new');
+                    allMiniCards.forEach(card => {
+                        const delay = parseInt(card.getAttribute('data-delay') || '0');
+                        setTimeout(() => { card.classList.add('revealed'); }, 300 + delay * 80);
+                    });
+                    showcaseObserver.unobserve(showcase);
+                }
+            });
+        }, { threshold: 0.15 });
+        const showcaseEl = document.getElementById('masterpieceShowcase');
+        if (showcaseEl) showcaseObserver.observe(showcaseEl);
+
+        // ---- SMOOTH NAV SCROLL ----
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                const href = a.getAttribute('href');
+                if (href === '#') return;
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // ---- COUNTER ANIMATION ----
+        function animateCounter(el, target, suffix = '') {
+            let start = 0;
+            const duration = 2000;
+            const step = (timestamp) => {
+                if (!start) start = timestamp;
+                const progress = Math.min((timestamp - start) / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                const value = Math.floor(eased * parseFloat(target));
+                el.textContent = value + suffix;
+                if (progress < 1) requestAnimationFrame(step);
+            };
+            requestAnimationFrame(step);
+        }
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const nums = entry.target.querySelectorAll('.stat-number');
+                    nums.forEach(num => {
+                        const text = num.textContent;
+                        const match = text.match(/[\d.]+/);
+                        if (match) {
+                            const suffix = text.replace(match[0], '');
+                            animateCounter(num, match[0], suffix);
+                        }
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) statsObserver.observe(statsSection);
+
+        // ---- MOBILE MENU ----
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileClose = document.getElementById('mobileClose');
+        hamburger && hamburger.addEventListener('click', () => { mobileMenu.classList.add('open'); });
+        mobileClose && mobileClose.addEventListener('click', closeMobileMenu);
+
+        function closeMobileMenu() { mobileMenu.classList.remove('open'); }
+
+        // ---- TESTIMONIAL HOVER GLOW ----
+        document.querySelectorAll('.testimonial-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left,
+                    y = e.clientY - rect.top;
+                card.style.background =
+                    `radial-gradient(circle at ${x}px ${y}px,rgba(201,160,64,0.07) 0%,transparent 70%),linear-gradient(135deg,rgba(201,160,64,0.03) 0%,transparent 100%)`;
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.background =
+                    'linear-gradient(135deg,rgba(201,160,64,0.03) 0%,transparent 100%)';
+            });
+        });
+
+        // ---- MINI CARD TILT ----
+        document.querySelectorAll('.mini-card-new').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width - 0.5;
+                const y = (e.clientY - rect.top) / rect.height - 0.5;
+                card.style.transform =
+                    `perspective(600px) rotateY(${x * 4}deg) rotateX(${-y * 3}deg) scale(1.02)`;
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(600px) rotateY(0deg) rotateX(0deg) scale(1)';
+                card.style.transition = 'transform 0.6s ease';
+            });
+        });
+    </script>
+
+</body>
+
+</html>
